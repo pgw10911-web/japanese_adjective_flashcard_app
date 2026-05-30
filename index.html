@@ -1657,10 +1657,10 @@ function renderDaily(){
   $("#dailyBar").style.width = items.length ? `${Math.round((completed.size/items.length)*100)}%` : "0%";
 
   if($("#dailyStageInfo")){
-    const currentSet = items.length ? `${stage.stageStart + 1}~${stage.stageEnd}` : "완료";
+    const overallPercent = stage.total ? Math.round((stage.done.size / stage.total) * 100) : 0;
     $("#dailyStageInfo").textContent = type==="i"
-      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`
-      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`;
+      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 진행률: ${overallPercent}%`
+      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 진행률: ${overallPercent}%`;
   }
 
   if(!items.length){
@@ -1945,9 +1945,10 @@ function renderDaily(){
   });
 
   if($("#dailyLockText")){
+    const lockProgressPercent = stage.total ? Math.round((stage.done.size / stage.total) * 100) : 0;
     $("#dailyLockText").textContent = iDone
       ? "이형용사 75개 완료. 이제 나형용사 학습을 진행합니다."
-      : `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${stage.stageStart + 1}~${stage.stageEnd}번`;
+      : `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} (${lockProgressPercent}%). 75개를 모두 완료하면 나형용사가 열립니다.`;
   }
 
   $("#dailyTitle").textContent = type==="i" ? "이(い)형용사 오늘 학습" : "나(な)형용사 오늘 학습";
@@ -1955,10 +1956,10 @@ function renderDaily(){
   $("#dailyBar").style.width = items.length ? `${Math.round((completed.size/items.length)*100)}%` : "0%";
 
   if($("#dailyStageInfo")){
-    const currentSet = items.length ? `${stage.stageStart + 1}~${stage.stageEnd}` : "완료";
+    const overallPercent = stage.total ? Math.round((stage.done.size / stage.total) * 100) : 0;
     $("#dailyStageInfo").textContent = type==="i"
-      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`
-      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`;
+      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 진행률: ${overallPercent}%`
+      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 진행률: ${overallPercent}%`;
   }
 
   if(!items.length){
