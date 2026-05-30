@@ -714,7 +714,7 @@ const words=rawWords.map((w,i)=>({id:i+1,type:w[0],word:w[1],reading:w[2],meanin
 const state={type:"all",form:"base",mode:"flash",index:0,filtered:[...words],quiz:null};
 
 const dailyState={type:"i",index:0};
-const DAILY_COUNT=5, DAILY_POINTS=10, STREAK_BONUS=50, DAILY_KEY="jp_adjective_daily_v3_fresh_start";
+const DAILY_COUNT=5, DAILY_POINTS=10, STREAK_BONUS=50, DAILY_KEY="jp_adjective_daily_v30_fresh_start";
 
 function todayKey(){
   const d=new Date();
@@ -2023,7 +2023,7 @@ function renderDaily(){
 }
 
 
-/* v27 fresh start: 새 저장소 기준 처음 시작 화면 */
+/* v30 fresh start: 오늘학습/출석 상태를 새 저장소 기준 처음 시작 화면으로 초기화 */
 function getFixedDailyGroup(type){
   const store = ensureDailyStoreShape(readDailyStore());
   if(!store.activeDailyGroup) store.activeDailyGroup = {};
@@ -2042,7 +2042,7 @@ function getFixedDailyGroup(type){
 
 function resetDailyProgressForNewInstall(){
   const store = readDailyStore();
-  if(!store.initializedFreshV27){
+  if(!store.initializedFreshV30){
     writeDailyStore({
       points: 0,
       attendance: [],
@@ -2056,7 +2056,7 @@ function resetDailyProgressForNewInstall(){
       allCompleted: {i: [], na: []},
       stageCompleted: {},
       activeDailyGroup: {},
-      initializedFreshV27: true
+      initializedFreshV30: true
     });
   }
 }
