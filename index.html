@@ -1,0 +1,2134 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>일본어 형용사 단어장</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;background:#f6f3ed;color:#222}
+.app{width:100%;max-width:430px;min-height:100vh;margin:0 auto;padding:18px;background:#fffaf2}
+h1{margin:0 0 6px;font-size:21px} .desc{margin:0 0 16px;color:#777;font-size:14px;line-height:1.5}
+.tabs,.mode-tabs,.form-tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px}
+button{border:0;cursor:pointer;font-family:inherit} .tab-btn,.mode-btn,.form-btn{flex:0 0 auto;padding:9px 13px;border-radius:999px;background:#eee;color:#555;font-weight:800;font-size:13px}
+.active{background:#222!important;color:#fff!important} input{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:14px;font-size:15px;outline:none;margin-bottom:14px}
+.stats{display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px;color:#666}
+.card-wrap{perspective:1000px;margin-bottom:14px} .card{cursor:pointer;position:relative;min-height:300px;border-radius:22px;transform-style:preserve-3d;transition:.45s;box-shadow:0 14px 32px rgba(0,0,0,.08)}
+.card.flipped{transform:rotateY(180deg)} .face{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:18px;border-radius:22px;backface-visibility:hidden;overflow:hidden}
+.card.i .face{background:#fff1b8} .card.na .face{background:#edf8ff} .back{transform:rotateY(180deg);justify-content:flex-start;align-items:stretch;overflow-y:auto}
+.badge{align-self:flex-start;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.72);font-size:12px;font-weight:900;margin-bottom:18px}
+.jp{font-size:40px;font-weight:900;text-align:center;line-height:1.2;margin-bottom:10px} .reading{font-size:17px;color:#555;margin-bottom:18px} .meaning{font-size:22px;font-weight:900;margin-bottom:14px}
+.box{width:100%;background:rgba(255,255,255,.72);border-radius:16px;padding:14px;margin-bottom:10px} .label{font-size:12px;font-weight:900;color:#666;margin-bottom:6px}
+.form-value{font-size:21px;font-weight:900;margin-bottom:4px} .ex-jp{font-size:18px;font-weight:800;line-height:1.45;margin-bottom:6px} .ex-kana,.ex-ko{font-size:14px;line-height:1.45;color:#444;margin-bottom:5px}
+.sound-row,.controls,.quiz-actions{display:flex;gap:8px} .sound,.nav,.flip,.quiz-btn{padding:11px 12px;border-radius:14px;background:#222;color:#fff;font-weight:800;font-size:13px}
+.sound{flex:1}.mini-sound{position:absolute;right:18px;top:18px;width:42px;height:42px;border-radius:50%;background:rgba(34,34,34,.82);color:#fff;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center} .controls{display:grid;grid-template-columns:1fr 1fr;margin-bottom:18px} .flip{grid-column:span 2;background:#444}
+.list{display:grid;gap:9px;max-height:230px;overflow-y:auto;padding-bottom:10px} .word{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:#fff;border:1px solid #eee;text-align:left}
+.word.now{border-color:#222;box-shadow:0 0 0 2px rgba(0,0,0,.06)} .word strong{display:block;font-size:17px} .word span{display:block;color:#666;font-size:13px;margin-top:2px} .pill{padding:5px 8px;border-radius:999px;font-size:11px;font-weight:900;background:#f2f2f2;height:max-content}
+.hidden{display:none!important} .quiz-box{display:none;padding:18px;border-radius:24px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.06)} .quiz-box.on{display:block}
+.question{font-size:22px;font-weight:900;line-height:1.4;margin-bottom:16px} .choices{display:grid;gap:9px;margin-bottom:14px} .choice{width:100%;padding:13px 14px;border-radius:15px;background:#f4f4f4;color:#222;font-size:15px;font-weight:800;text-align:left}
+.correct{background:#d9f5dd!important} .wrong{background:#ffdede!important} .result{min-height:22px;font-weight:900;margin-bottom:12px} .quiz-actions .quiz-btn{flex:1}
+
+.word-line {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 8px;
+}
+
+.inline-reading {
+  font-size: 22px;
+  font-weight: 800;
+  color: #777;
+  white-space: nowrap;
+}
+
+.jp {
+  margin-bottom: 0 !important;
+}
+
+.form-inline {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.form-reading-inline {
+  font-size: 15px;
+  font-weight: 700;
+  color: #777;
+}
+
+@media (max-width: 380px) {
+  .jp { font-size: 34px !important; }
+  .inline-reading { font-size: 18px; }
+  .word-line { gap: 7px; }
+}
+
+
+.hidden-reading { display: none !important; }
+
+.jp-markup,
+.form-markup,
+.ex-jp {
+  line-height: 1.45;
+  word-break: keep-all;
+}
+
+.kana-in-kanji {
+  font-size: 0.68em;
+  font-weight: 800;
+  color: #777;
+  vertical-align: baseline;
+  margin: 0 1px;
+}
+
+.ex-jp .kana-in-kanji {
+  font-size: 0.78em;
+}
+
+@media (max-width: 380px) {
+  .jp-markup { font-size: 32px !important; }
+}
+
+
+.question .kana-in-kanji {
+  font-size: 0.72em;
+  font-weight: 800;
+}
+
+.form-markup .kana-in-kanji {
+  font-size: 0.72em;
+}
+
+.jp-markup .kana-in-kanji,
+.jp-inline .kana-in-kanji {
+  font-size: 0.7em;
+}
+
+
+.kana-in-kanji,
+.question .kana-in-kanji,
+.form-markup .kana-in-kanji,
+.jp-markup .kana-in-kanji,
+.jp-inline .kana-in-kanji,
+.ex-jp .kana-in-kanji {
+  font-weight: 400 !important;
+}
+
+
+/* 전체 글자 두께 기본값으로 통일 */
+*,
+*::before,
+*::after {
+  font-weight: 400 !important;
+}
+
+/* 제목도 너무 두껍지 않게 기본 계열로 유지 */
+h1,
+.jp,
+.jp-main,
+.form-value,
+.ex-jp,
+.question,
+.choice,
+.choice-btn,
+.tab-btn,
+.mode-btn,
+.form-btn,
+.nav,
+.sound,
+.sound-btn,
+.quiz-btn,
+.badge,
+.meaning,
+.word strong,
+.word-item .left strong,
+.result {
+  font-weight: 400 !important;
+}
+
+
+.daily-box{display:none;padding:18px;border-radius:24px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.06);margin-bottom:18px}
+.daily-box.on{display:block}
+.daily-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
+.daily-head h2{margin:0 0 5px;font-size:20px;line-height:1.3}
+.daily-head p{margin:0;color:#777;font-size:13px;line-height:1.45}
+.daily-small-btn{flex:0 0 auto;padding:9px 11px;border-radius:999px;background:#222;color:#fff;font-size:12px}
+.daily-score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.daily-score-card{padding:12px 10px;border-radius:16px;background:#f5f5f5}
+.daily-score-card span{display:block;color:#777;font-size:12px;margin-bottom:5px}
+.daily-score-card strong{display:block;color:#222;font-size:18px}
+.daily-type-tabs{display:flex;gap:8px;margin-bottom:14px}
+.daily-type-btn{flex:1;padding:11px 10px;border-radius:999px;background:#eee;color:#555;font-size:14px}
+.daily-type-btn.active{background:#222;color:#fff}
+.daily-progress{margin-bottom:14px}
+.daily-progress-row{display:flex;justify-content:space-between;margin-bottom:8px;color:#555;font-size:14px}
+.daily-bar{width:100%;height:10px;border-radius:999px;background:#eee;overflow:hidden}
+.daily-bar span{display:block;width:0%;height:100%;border-radius:inherit;background:#222;transition:width .25s ease}
+.daily-card{padding:18px;border-radius:22px;background:#fff1b8;margin-bottom:12px}
+.daily-card.na{background:#edf8ff}
+.daily-word{font-size:34px;line-height:1.35;margin-bottom:8px}
+.daily-meaning{font-size:20px;color:#333;margin-bottom:12px}
+.daily-example{font-size:20px;line-height:1.5;margin-bottom:6px}
+.daily-ko{font-size:15px;line-height:1.45;color:#555}
+.daily-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
+.daily-btn{padding:13px 12px;border-radius:15px;background:#222;color:#fff;font-size:14px}
+.daily-list{display:grid;gap:8px}
+.daily-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 13px;border-radius:15px;background:#f7f7f7;border:1px solid #eee}
+.daily-item.done{background:#e9f8ec}
+.daily-item-word{font-size:17px}
+.daily-item-meaning{display:block;color:#666;font-size:13px;margin-top:3px}
+.daily-done-pill{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:#222;color:#fff;font-size:11px}
+@media(max-width:380px){.daily-word{font-size:28px}.daily-example{font-size:18px}.daily-score-card strong{font-size:16px}}
+
+
+.daily-type-btn.locked {
+  opacity: .45;
+  cursor: not-allowed;
+}
+.daily-lock-text {
+  margin-top: -6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.4;
+}
+
+
+/* 오늘학습 단일 카드형 */
+.daily-stage-info {
+  margin-bottom: 12px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: #f6f6f6;
+  color: #555;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.daily-single-wrap {
+  perspective: 1000px;
+  margin-bottom: 14px;
+}
+
+.daily-single-card {
+  position: relative;
+  min-height: 620px;
+  border-radius: 24px;
+  transform-style: preserve-3d;
+  transition: transform .45s ease;
+  cursor: pointer;
+}
+
+.daily-single-card.flipped {
+  transform: rotateY(180deg);
+}
+
+.daily-single-face {
+  position: absolute;
+  inset: 0;
+  padding: 18px;
+  border-radius: 24px;
+  backface-visibility: hidden;
+  overflow-y: auto;
+  background: #fff1b8;
+}
+
+.daily-single-card.na .daily-single-face {
+  background: #edf8ff;
+}
+
+.daily-single-back {
+  transform: rotateY(180deg);
+}
+
+.daily-front-word {
+  font-size: 36px;
+  line-height: 1.35;
+  margin-top: 80px;
+  text-align: center;
+}
+
+.daily-front-sub {
+  margin-top: 16px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.45;
+}
+
+.daily-back-title {
+  font-size: 28px;
+  line-height: 1.35;
+  margin-bottom: 6px;
+}
+
+.daily-back-meaning {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.daily-form-list {
+  display: grid;
+  gap: 8px;
+}
+
+.daily-form-row {
+  padding: 11px 12px;
+  border-radius: 15px;
+  background: rgba(255,255,255,.72);
+}
+
+.daily-form-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  align-items: baseline;
+  margin-bottom: 7px;
+}
+
+.daily-form-label {
+  flex: 0 0 auto;
+  font-size: 12px;
+  color: #777;
+}
+
+.daily-form-value {
+  flex: 1;
+  text-align: right;
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.daily-example-line {
+  font-size: 16px;
+  line-height: 1.5;
+  margin-bottom: 5px;
+}
+
+.daily-ko-line {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.45;
+  margin-bottom: 8px;
+}
+
+.daily-sound-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7px;
+}
+
+.daily-mini-sound {
+  padding: 9px 10px;
+  border-radius: 12px;
+  background: #222;
+  color: #fff;
+  font-size: 13px;
+}
+
+.daily-nav-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+}
+
+.daily-nav-btn {
+  width: 100%;
+  padding: 13px 12px;
+  border-radius: 15px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+}
+
+.daily-nav-btn.secondary {
+  background: #555;
+}
+
+.daily-type-btn.locked {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.daily-lock-text {
+  margin-top: -6px;
+  margin-bottom: 12px;
+  font-size: 13px;
+  color: #777;
+  line-height: 1.4;
+}
+
+@media(max-width:380px){
+  .daily-single-card { min-height: 600px; }
+  .daily-front-word { font-size: 30px; }
+  .daily-back-title { font-size: 24px; }
+  .daily-form-value { font-size: 16px; }
+  .daily-example-line { font-size: 15px; }
+}
+
+
+/* 오늘학습 앞면 전체 학습형 */
+.daily-single-front {
+  display: block;
+}
+
+.daily-single-front .daily-front-word {
+  margin-top: 0 !important;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.daily-single-front .daily-front-sub {
+  text-align: left;
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.daily-single-front .daily-form-list {
+  margin-top: 0;
+}
+
+.daily-front-meaning-placeholder {
+  display: none;
+}
+
+
+.attendance-check-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: #f6f6f6;
+  margin-bottom: 14px;
+}
+
+.attendance-check-box strong {
+  display: block;
+  font-size: 15px;
+  color: #222;
+  margin-bottom: 4px;
+}
+
+.attendance-check-box p {
+  margin: 0;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.attendance-btn {
+  flex: 0 0 auto;
+  padding: 10px 12px;
+  border-radius: 999px;
+  background: #222;
+  color: #fff;
+  font-size: 13px;
+}
+
+.attendance-btn.done {
+  background: #6aa86f;
+}
+
+
+.attendance-calendar-box {
+  padding: 13px 14px;
+  border-radius: 18px;
+  background: #f6f6f6;
+  margin-bottom: 14px;
+}
+
+.calendar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.calendar-head strong {
+  font-size: 15px;
+  color: #222;
+}
+
+.calendar-head span {
+  font-size: 12px;
+  color: #777;
+}
+
+.calendar-week,
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+.calendar-week span {
+  text-align: center;
+  font-size: 11px;
+  color: #888;
+  padding-bottom: 4px;
+}
+
+.calendar-day {
+  position: relative;
+  height: 34px;
+  border-radius: 10px;
+  background: #fff;
+  color: #555;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day.empty {
+  background: transparent;
+}
+
+.calendar-day.today {
+  outline: 1px solid #222;
+}
+
+.calendar-day.checked {
+  background: #6aa86f;
+  color: #fff;
+}
+
+.calendar-day.checked::after {
+  content: "✓";
+  position: absolute;
+  right: 4px;
+  top: 2px;
+  font-size: 10px;
+}
+
+@media(max-width:380px){
+  .calendar-day { height: 30px; font-size: 11px; }
+}
+
+
+/* 알림 시간 설정 모달 */
+.notify-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 18px;
+  background: rgba(0,0,0,.38);
+}
+.notify-modal.hidden { display: none !important; }
+.notify-panel {
+  width: 100%;
+  max-width: 430px;
+  padding: 22px;
+  border-radius: 28px;
+  background: #fff;
+  box-shadow: 0 18px 45px rgba(0,0,0,.18);
+}
+.notify-panel h3 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  color: #222;
+}
+.notify-panel p {
+  margin: 0 0 16px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.notify-time-label {
+  display: block;
+  margin-bottom: 14px;
+  color: #333;
+  font-size: 14px;
+}
+#notifyTimeInput {
+  margin: 8px 0 0;
+  height: 54px;
+  border-radius: 16px;
+  font-size: 20px;
+  text-align: center;
+  background: #f7f7f7;
+}
+.notify-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+.notify-action-btn {
+  padding: 14px 12px;
+  border-radius: 16px;
+  background: #222;
+  color: #fff;
+  font-size: 14px;
+}
+.notify-action-btn.secondary { background: #eee; color: #333; }
+.notify-action-btn.ghost {
+  width: 100%;
+  margin-top: 8px;
+  background: transparent;
+  color: #666;
+}
+
+</style>
+</head>
+<body>
+<div class="app">
+<header><h1>일본어 형용사 단어장</h1><p class="desc">이형용사/나형용사 150개 · 활용형 · 예문 · 발음 · 퀴즈</p></header>
+<div class="mode-tabs"><button class="mode-btn active" data-mode="flash">플래시카드</button><button class="mode-btn" data-mode="daily">오늘학습</button><button class="mode-btn" data-mode="quiz">퀴즈</button></div>
+<div class="tabs"><button class="tab-btn active" data-type="all">전체</button><button class="tab-btn" data-type="i">이(い)형용사</button><button class="tab-btn" data-type="na">나(な)형용사</button></div>
+<input id="search" type="search" placeholder="일본어, 히라가나, 뜻으로 검색">
+<div class="form-tabs" id="formTabs"></div>
+
+<section id="flash">
+<div class="stats"><span id="count"></span><span id="idx"></span></div>
+<div class="card-wrap">
+<div class="card i" id="card">
+<div class="face front">
+<div class="badge" id="frontType"></div><button class="mini-sound" id="frontSound" aria-label="형용사 발음">🔊</button><div class="jp" id="frontWord"></div><div class="reading" id="frontReading"></div>
+</div>
+<div class="face back">
+<div class="badge" id="backType"></div><div class="meaning" id="meaning"></div>
+<div class="box"><div class="label">선택한 활용형</div><div class="form-value form-markup" id="formValue"></div><div class="form-reading-inline hidden-reading" id="formReading"></div></div>
+<div class="box"><div class="label">예문</div><div class="ex-jp" id="exJp"></div><div class="ex-kana" id="exKana"></div><div class="ex-ko" id="exKo"></div></div>
+<div class="sound-row"><button class="sound" id="wordSound">형용사 발음</button><button class="sound" id="exSound">예문 발음</button></div>
+</div>
+</div>
+</div>
+<div class="controls two"><button class="nav" id="prev">이전</button><button class="nav" id="next">다음</button></div>
+<div class="list" id="list"></div>
+</section>
+
+
+<section class="daily-box" id="dailyBox">
+  <div class="daily-head">
+    <div>
+      <h2>오늘의 형용사 학습</h2>
+      <p>이형용사 75개를 5개씩 모두 끝낸 뒤, 나형용사 학습이 시작됩니다.</p>
+    </div>
+    <button class="daily-small-btn" id="dailyNotifyBtn">알림 설정</button>
+  </div>
+
+  <div class="daily-score-grid">
+    <div class="daily-score-card"><span>출석일</span><strong id="attendanceDays">0일</strong></div>
+    <div class="daily-score-card"><span>연속 학습</span><strong id="streakDays">0일</strong></div>
+    <div class="daily-score-card"><span>점수</span><strong id="totalPoints">0점</strong></div>
+  </div>
+
+  <div class="attendance-check-box">
+    <div>
+      <strong id="attendanceStatus">오늘 출석 전</strong>
+      <p id="attendanceGuide">오늘 학습 5개를 완료한 뒤 출석체크를 눌러주세요.</p>
+    </div>
+    <button class="attendance-btn" id="attendanceCheckBtn">출석체크</button>
+  </div>
+
+  <div class="attendance-calendar-box">
+    <div class="calendar-head">
+      <strong id="calendarMonthTitle">출석 달력</strong>
+      <span id="calendarSummary">이번 달 출석 0일</span>
+    </div>
+    <div class="calendar-week">
+      <span>일</span><span>월</span><span>화</span><span>수</span><span>목</span><span>금</span><span>토</span>
+    </div>
+    <div class="calendar-grid" id="attendanceCalendar"></div>
+  </div>
+
+
+  <div class="daily-type-tabs">
+    <button class="daily-type-btn active" data-daily-type="i">이(い)형용사</button>
+    <button class="daily-type-btn" data-daily-type="na">나(な)형용사</button>
+  </div>
+  <div class="daily-lock-text" id="dailyLockText">이형용사 5개를 완료하면 나형용사가 열립니다.</div>
+
+  <div class="daily-progress">
+    <div class="daily-progress-row">
+      <span id="dailyTitle">이(い)형용사 오늘 학습</span>
+      <strong id="dailyProgressText">0 / 5</strong>
+    </div>
+    <div class="daily-bar"><span id="dailyBar"></span></div>
+  </div>
+
+  <div class="daily-stage-info" id="dailyStageInfo"></div>
+
+  <div class="daily-single-wrap">
+    <div class="daily-single-card" id="dailySingleCard">
+      <div class="daily-single-face daily-single-front">
+        <div class="daily-front-word" id="dailyFrontWord"></div>
+        <div class="daily-front-sub">앞면은 한글 뜻 없이 학습합니다. 카드를 누르면 뜻을 확인할 수 있습니다.</div>
+        <div class="daily-form-list" id="dailyFrontFormList"></div>
+      </div>
+      <div class="daily-single-face daily-single-back">
+        <div class="daily-back-title" id="dailyBackWord"></div>
+        <div class="daily-back-meaning" id="dailyBackMeaning"></div>
+        <div class="daily-form-list" id="dailyFormList"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="daily-nav-actions">
+    <button class="daily-nav-btn secondary" id="dailyPrevBtn">이전</button>
+    <button class="daily-nav-btn" id="dailyNextBtn">다음</button>
+  </div>
+  <button class="daily-nav-btn" id="dailyCompleteBtn">이 단어 학습 완료</button>
+
+  <div class="notify-modal hidden" id="notifyModal" aria-hidden="true">
+    <div class="notify-panel" role="dialog" aria-modal="true" aria-labelledby="notifyModalTitle">
+      <h3 id="notifyModalTitle">학습 알림 시간 설정</h3>
+      <p>매일 알림을 받을 시간을 선택하세요. 저장하면 선택한 시간 이후 앱을 열었을 때 오늘 학습 알림이 표시됩니다.</p>
+      <label class="notify-time-label" for="notifyTimeInput">
+        알림 시간
+        <input id="notifyTimeInput" type="time" value="20:00">
+      </label>
+      <div class="notify-actions">
+        <button class="notify-action-btn secondary" id="notifyCancelBtn" type="button">취소</button>
+        <button class="notify-action-btn" id="notifySaveBtn" type="button">저장</button>
+      </div>
+      <button class="notify-action-btn ghost" id="notifyDisableBtn" type="button">알림 끄기</button>
+    </div>
+  </div>
+
+</section>
+
+<section class="quiz-box" id="quizBox">
+<div class="question" id="question"></div><div class="choices" id="choices"></div><div class="result" id="result"></div>
+<div class="quiz-actions"><button class="quiz-btn" id="quizSound">문제 발음</button><button class="quiz-btn" id="nextQuiz">다음 문제</button></div>
+</section>
+</div>
+
+<script>
+const forms=[{key:"base",label:"기본형"},{key:"polite",label:"정중형"},{key:"negative",label:"부정형"},{key:"past",label:"과거형"},{key:"conditional",label:"가정형"},{key:"te",label:"연결형(~고)"},{key:"adverb",label:"부사화(~하게)"}];
+const rawWords=[["i", "高い", "たかい", "높다 / 비싸다", "山", "やま", "산"], ["i", "安い", "やすい", "싸다", "かばん", "かばん", "가방"], ["i", "大きい", "おおきい", "크다", "家", "いえ", "집"], ["i", "小さい", "ちいさい", "작다", "犬", "いぬ", "개"], ["i", "新しい", "あたらしい", "새롭다 / 새것이다", "靴", "くつ", "신발"], ["i", "古い", "ふるい", "낡다 / 오래되다", "本", "ほん", "책"], ["i", "良い", "いい", "좋다", "天気", "てんき", "날씨"], ["i", "悪い", "わるい", "나쁘다", "気分", "きぶん", "기분"], ["i", "暑い", "あつい", "덥다", "夏", "なつ", "여름"], ["i", "寒い", "さむい", "춥다", "冬", "ふゆ", "겨울"], ["i", "熱い", "あつい", "뜨겁다", "お茶", "おちゃ", "차"], ["i", "冷たい", "つめたい", "차갑다", "水", "みず", "물"], ["i", "暖かい", "あたたかい", "따뜻하다", "部屋", "へや", "방"], ["i", "涼しい", "すずしい", "시원하다 / 서늘하다", "風", "かぜ", "바람"], ["i", "明るい", "あかるい", "밝다", "教室", "きょうしつ", "교실"], ["i", "暗い", "くらい", "어둡다", "道", "みち", "길"], ["i", "広い", "ひろい", "넓다", "公園", "こうえん", "공원"], ["i", "狭い", "せまい", "좁다", "部屋", "へや", "방"], ["i", "重い", "おもい", "무겁다", "荷物", "にもつ", "짐"], ["i", "軽い", "かるい", "가볍다", "箱", "はこ", "상자"], ["i", "長い", "ながい", "길다", "道", "みち", "길"], ["i", "短い", "みじかい", "짧다", "映画", "えいが", "영화"], ["i", "太い", "ふとい", "굵다 / 두껍다", "ペン", "ぺん", "펜"], ["i", "細い", "ほそい", "가늘다 / 얇다", "線", "せん", "선"], ["i", "厚い", "あつい", "두껍다", "本", "ほん", "책"], ["i", "薄い", "うすい", "얇다 / 옅다", "紙", "かみ", "종이"], ["i", "強い", "つよい", "강하다 / 세다", "風", "かぜ", "바람"], ["i", "弱い", "よわい", "약하다", "光", "ひかり", "빛"], ["i", "早い", "はやい", "이르다 / 빠르다", "朝", "あさ", "아침"], ["i", "速い", "はやい", "빠르다", "車", "くるま", "차"], ["i", "遅い", "おそい", "늦다 / 느리다", "電車", "でんしゃ", "전철"], ["i", "忙しい", "いそがしい", "바쁘다", "先生", "せんせい", "선생님"], ["i", "楽しい", "たのしい", "즐겁다", "旅行", "りょこう", "여행"], ["i", "面白い", "おもしろい", "재미있다 / 흥미롭다", "話", "はなし", "이야기"], ["i", "つまらない", "つまらない", "재미없다", "授業", "じゅぎょう", "수업"], ["i", "難しい", "むずかしい", "어렵다", "問題", "もんだい", "문제"], ["i", "易しい", "やさしい", "쉽다", "説明", "せつめい", "설명"], ["i", "優しい", "やさしい", "상냥하다", "人", "ひと", "사람"], ["i", "怖い", "こわい", "무섭다", "映画", "えいが", "영화"], ["i", "痛い", "いたい", "아프다", "足", "あし", "다리"], ["i", "眠い", "ねむい", "졸리다", "午後", "ごご", "오후"], ["i", "若い", "わかい", "젊다", "学生", "がくせい", "학생"], ["i", "近い", "ちかい", "가깝다", "駅", "えき", "역"], ["i", "遠い", "とおい", "멀다", "学校", "がっこう", "학교"], ["i", "多い", "おおい", "많다", "人", "ひと", "사람"], ["i", "少ない", "すくない", "적다", "時間", "じかん", "시간"], ["i", "美味しい", "おいしい", "맛있다", "料理", "りょうり", "요리"], ["i", "まずい", "まずい", "맛없다 / 형편없다", "薬", "くすり", "약"], ["i", "甘い", "あまい", "달다", "ケーキ", "けーき", "케이크"], ["i", "辛い", "からい", "맵다 / 괴롭다", "カレー", "かれー", "카레"], ["i", "苦い", "にがい", "쓰다", "コーヒー", "こーひー", "커피"], ["i", "酸っぱい", "すっぱい", "시다", "レモン", "れもん", "레몬"], ["i", "塩辛い", "しおからい", "짜다", "スープ", "すーぷ", "수프"], ["i", "うるさい", "うるさい", "시끄럽다 / 귀찮게 굴다", "音", "おと", "소리"], ["i", "汚い", "きたない", "더럽다 / 지저분하다", "机", "つくえ", "책상"], ["i", "眠たい", "ねむたい", "졸리다", "朝", "あさ", "아침"], ["i", "恥ずかしい", "はずかしい", "부끄럽다 / 창피하다", "発表", "はっぴょう", "발표"], ["i", "寂しい", "さびしい", "외롭다 / 쓸쓸하다", "夜", "よる", "밤"], ["i", "悲しい", "かなしい", "슬프다", "知らせ", "しらせ", "소식"], ["i", "嬉しい", "うれしい", "기쁘다", "誕生日", "たんじょうび", "생일"], ["i", "可愛い", "かわいい", "귀엽다", "猫", "ねこ", "고양이"], ["i", "かっこいい", "かっこいい", "멋있다", "服", "ふく", "옷"], ["i", "美しい", "うつくしい", "아름답다", "花", "はな", "꽃"], ["i", "珍しい", "めずらしい", "드물다 / 신기하다", "名前", "なまえ", "이름"], ["i", "正しい", "ただしい", "옳다 / 정확하다", "答え", "こたえ", "답"], ["i", "詳しい", "くわしい", "자세하다 / 잘 알다", "説明", "せつめい", "설명"], ["i", "欲しい", "ほしい", "갖고 싶다 / 원하다", "時計", "とけい", "시계"], ["i", "すごい", "すごい", "대단하다", "力", "ちから", "힘"], ["i", "赤い", "あかい", "빨갛다", "花", "はな", "꽃"], ["i", "青い", "あおい", "파랗다 / 푸르다", "空", "そら", "하늘"], ["i", "白い", "しろい", "하얗다", "シャツ", "しゃつ", "셔츠"], ["i", "黒い", "くろい", "검다 / 까맣다", "かばん", "かばん", "가방"], ["i", "丸い", "まるい", "둥글다", "月", "つき", "달"], ["i", "危ない", "あぶない", "위험하다", "道", "みち", "길"], ["i", "眠たい", "ねむたい", "졸리다", "朝", "あさ", "아침"], ["na", "静か", "しずか", "조용하다", "図書館", "としょかん", "도서관"], ["na", "賑やか", "にぎやか", "번화하다 / 활기차다", "町", "まち", "거리"], ["na", "有名", "ゆうめい", "유명하다", "歌手", "かしゅ", "가수"], ["na", "親切", "しんせつ", "친절하다", "店員", "てんいん", "점원"], ["na", "元気", "げんき", "건강하다 / 활기차다", "子ども", "こども", "아이"], ["na", "便利", "べんり", "편리하다", "アプリ", "あぷり", "앱"], ["na", "不便", "ふべん", "불편하다", "場所", "ばしょ", "장소"], ["na", "簡単", "かんたん", "간단하다 / 쉽다", "料理", "りょうり", "요리"], ["na", "複雑", "ふくざつ", "복잡하다", "ルール", "るーる", "규칙"], ["na", "安全", "あんぜん", "안전하다", "町", "まち", "마을"], ["na", "危険", "きけん", "위험하다", "仕事", "しごと", "일"], ["na", "大切", "たいせつ", "소중하다 / 중요하다", "友達", "ともだち", "친구"], ["na", "必要", "ひつよう", "필요하다", "時間", "じかん", "시간"], ["na", "自由", "じゆう", "자유롭다", "生活", "せいかつ", "생활"], ["na", "暇", "ひま", "한가하다 / 시간이 있다", "週末", "しゅうまつ", "주말"], ["na", "好き", "すき", "좋아하다 / 좋다", "音楽", "おんがく", "음악"], ["na", "嫌い", "きらい", "싫어하다 / 싫다", "野菜", "やさい", "채소"], ["na", "上手", "じょうず", "잘하다 / 능숙하다", "日本語", "にほんご", "일본어"], ["na", "下手", "へた", "못하다 / 서투르다", "料理", "りょうり", "요리"], ["na", "得意", "とくい", "잘하다 / 자신 있다", "歌", "うた", "노래"], ["na", "苦手", "にがて", "서투르다, 어려워하다", "数学", "すうがく", "수학"], ["na", "丈夫", "じょうぶ", "튼튼하다 / 견고하다", "かばん", "かばん", "가방"], ["na", "丁寧", "ていねい", "정중하다 / 꼼꼼하다", "説明", "せつめい", "설명"], ["na", "失礼", "しつれい", "실례다 / 무례하다", "態度", "たいど", "태도"], ["na", "真面目", "まじめ", "성실하다 / 진지하다", "学生", "がくせい", "학생"], ["na", "熱心", "ねっしん", "열심이다 / 열정적이다", "先生", "せんせい", "선생님"], ["na", "新鮮", "しんせん", "신선하다", "魚", "さかな", "생선"], ["na", "特別", "とくべつ", "특별하다", "日", "ひ", "날"], ["na", "普通", "ふつう", "보통이다 / 평범하다", "味", "あじ", "맛"], ["na", "十分", "じゅうぶん", "충분하다", "お金", "おかね", "돈"], ["na", "残念", "ざんねん", "아쉽다 / 유감이다", "結果", "けっか", "결과"], ["na", "心配", "しんぱい", "걱정이다 / 걱정스럽다", "試験", "しけん", "시험"], ["na", "大丈夫", "だいじょうぶ", "괜찮다", "体", "からだ", "몸"], ["na", "きれい", "きれい", "예쁘다 / 깨끗하다", "部屋", "へや", "방"], ["na", "嫌", "いや", "싫다", "音", "おと", "소리"], ["na", "楽", "らく", "편하다 / 수월하다", "仕事", "しごと", "일"], ["na", "無理", "むり", "무리다 / 불가능하다", "計画", "けいかく", "계획"], ["na", "同じ", "おなじ", "같다 / 동일하다", "答え", "こたえ", "답"], ["na", "色々", "いろいろ", "여러 가지다 / 다양하다", "店", "みせ", "가게"], ["na", "変", "へん", "이상하다 / 수상하다", "話", "はなし", "이야기"], ["na", "素敵", "すてき", "근사하다 / 멋지다", "服", "ふく", "옷"], ["na", "おしゃれ", "おしゃれ", "멋스럽다 / 세련되다", "カフェ", "かふぇ", "카페"], ["na", "かわいそう", "かわいそう", "불쌍하다 / 안쓰럽다", "犬", "いぬ", "개"], ["na", "幸せ", "しあわせ", "행복하다", "家族", "かぞく", "가족"], ["na", "不幸", "ふこう", "불행하다", "出来事", "できごと", "사건"], ["na", "正直", "しょうじき", "솔직하다 / 정직하다", "人", "ひと", "사람"], ["na", "素直", "すなお", "순수하다 / 솔직하다", "子", "こ", "아이"], ["na", "頑固", "がんこ", "고집이 세다", "祖父", "そふ", "할아버지"], ["na", "重要", "じゅうよう", "중요하다", "資料", "しりょう", "자료"], ["na", "急", "きゅう", "갑작스럽다 / 급하다", "予定", "よてい", "일정"], ["na", "急速", "きゅうそく", "급속하다", "変化", "へんか", "변화"], ["na", "自然", "しぜん", "자연스럽다", "笑顔", "えがお", "미소"], ["na", "不自然", "ふしぜん", "부자연스럽다", "言い方", "いいかた", "말투"], ["na", "健康", "けんこう", "건강하다", "生活", "せいかつ", "생활"], ["na", "不健康", "ふけんこう", "건강에 좋지 않다 / 불건강하다", "食事", "しょくじ", "식사"], ["na", "明確", "めいかく", "명확하다", "目標", "もくひょう", "목표"], ["na", "曖昧", "あいまい", "애매하다 / 모호하다", "返事", "へんじ", "대답"], ["na", "適当", "てきとう", "적당하다 / 대충이다", "量", "りょう", "양"], ["na", "可能", "かのう", "가능하다", "方法", "ほうほう", "방법"], ["na", "不可能", "ふかのう", "불가능하다", "挑戦", "ちょうせん", "도전"], ["na", "確か", "たしか", "확실하다 / 정확하다", "情報", "じょうほう", "정보"], ["na", "豊か", "ゆたか", "풍부하다 / 넉넉하다", "自然", "しぜん", "자연"], ["na", "貧乏", "びんぼう", "가난하다", "生活", "せいかつ", "생활"], ["na", "巨大", "きょだい", "거대하다", "建物", "たてもの", "건물"], ["na", "平和", "へいわ", "평화롭다", "世界", "せかい", "세계"], ["na", "退屈", "たいくつ", "지루하다", "時間", "じかん", "시간"], ["na", "満足", "まんぞく", "만족하다", "結果", "けっか", "결과"], ["na", "不満", "ふまん", "불만스럽다", "対応", "たいおう", "대응"], ["na", "冷静", "れいせい", "침착하다 / 냉정하다", "判断", "はんだん", "판단"], ["na", "活発", "かっぱつ", "활발하다", "議論", "ぎろん", "토론"], ["na", "柔軟", "じゅうなん", "유연하다", "考え方", "かんがえかた", "사고방식"], ["na", "正確", "せいかく", "정확하다", "時計", "とけい", "시계"], ["na", "不正確", "ふせいかく", "부정확하다", "数字", "すうじ", "숫자"], ["na", "無駄", "むだ", "헛되다 / 낭비다", "時間", "じかん", "시간"], ["na", "派手", "はで", "화려하다 / 튀다", "服", "ふく", "옷"]];
+const words=rawWords.map((w,i)=>({id:i+1,type:w[0],word:w[1],reading:w[2],meaning:w[3],noun:w[4],nounReading:w[5],nounKo:w[6]}));
+const state={type:"all",form:"base",mode:"flash",index:0,filtered:[...words],quiz:null};
+
+const dailyState={type:"i",index:0};
+const DAILY_COUNT=5, DAILY_POINTS=10, STREAK_BONUS=50, DAILY_KEY="jp_adjective_daily_v3_fresh_start";
+
+function todayKey(){
+  const d=new Date();
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+}
+function readDailyStore(){
+  const base={points:0,attendance:[],lastCompletedDate:"",streak:0,completed:{},rewarded:{},notifyEnabled:false,notifyTime:"20:00",lastReminderKey:""};
+  try{return Object.assign(base,JSON.parse(localStorage.getItem(DAILY_KEY)||"{}"))}catch(e){return base}
+}
+function writeDailyStore(data){localStorage.setItem(DAILY_KEY,JSON.stringify(data))}
+function getDailyWords(type){
+  const pool=words.filter(w=>w.type===type);
+  const now=new Date();
+  const start=new Date(now.getFullYear(),0,0);
+  const day=Math.floor((now-start)/(1000*60*60*24));
+  const groupCount=Math.ceil(pool.length/DAILY_COUNT);
+  const group=(day-1)%groupCount;
+  return pool.slice(group*DAILY_COUNT,group*DAILY_COUNT+DAILY_COUNT);
+}
+function completedKey(type){return `${todayKey()}_${type}`}
+function getCompletedSet(type){const store=readDailyStore();return new Set(store.completed[completedKey(type)]||[])}
+function saveCompletedSet(type,set){const store=readDailyStore();store.completed[completedKey(type)]=Array.from(set);writeDailyStore(store)}
+function isTypeComplete(type){return getCompletedSet(type).size>=getDailyWords(type).length}
+function isTodayFullyComplete(){return isTypeComplete("i")&&isTypeComplete("na")}
+function updateAttendanceAndReward(type){
+  const store=readDailyStore();
+  const rewardKey=`${completedKey(type)}_rewarded`;
+  if(!store.rewarded[rewardKey]){
+    store.points+=DAILY_POINTS;
+    store.rewarded[rewardKey]=true;
+  }
+  if(isTodayFullyComplete()&&!store.attendance.includes(todayKey())){
+    const y=new Date();y.setDate(y.getDate()-1);
+    const yKey=`${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+    store.streak=store.lastCompletedDate===yKey?store.streak+1:1;
+    store.lastCompletedDate=todayKey();
+    store.attendance.push(todayKey());
+    if(store.streak%3===0){
+      store.points+=STREAK_BONUS;
+      setTimeout(()=>alert(`3일 연속 학습 완료! 보너스 ${STREAK_BONUS}점을 받았습니다.`),80);
+    }else{
+      setTimeout(()=>alert("오늘의 이형용사/나형용사 학습을 모두 완료했습니다. 출석 처리되었습니다."),80);
+    }
+  }
+  writeDailyStore(store);
+}
+function requestDailyNotification(){
+  openNotifyModal();
+}
+
+function openNotifyModal(){
+  const modal = $("#notifyModal");
+  const input = $("#notifyTimeInput");
+  if(!modal || !input) return;
+  const store = ensureDailyStoreShape(readDailyStore());
+  input.value = store.notifyTime || "20:00";
+  modal.classList.remove("hidden");
+  modal.setAttribute("aria-hidden","false");
+  setTimeout(()=>input.focus(),50);
+}
+
+function closeNotifyModal(){
+  const modal = $("#notifyModal");
+  if(!modal) return;
+  modal.classList.add("hidden");
+  modal.setAttribute("aria-hidden","true");
+}
+
+function saveNotifyTime(){
+  const input = $("#notifyTimeInput");
+  const time = input && input.value ? input.value : "20:00";
+  const store = ensureDailyStoreShape(readDailyStore());
+
+  if(!("Notification" in window)){
+    alert("이 브라우저에서는 알림 기능을 지원하지 않습니다.");
+    return;
+  }
+
+  Notification.requestPermission().then(permission=>{
+    if(permission === "granted"){
+      store.notifyEnabled = true;
+      store.notifyTime = time;
+      store.lastReminderKey = "";
+      writeDailyStore(store);
+      closeNotifyModal();
+      alert(`학습 알림 시간이 ${time}으로 설정되었습니다.`);
+      renderDaily();
+      maybeShowDailyReminder();
+    }else{
+      alert("알림 권한이 허용되지 않았습니다. 브라우저 설정에서 알림 권한을 허용해야 합니다.");
+    }
+  });
+}
+
+function disableNotifyTime(){
+  const store = ensureDailyStoreShape(readDailyStore());
+  store.notifyEnabled = false;
+  writeDailyStore(store);
+  closeNotifyModal();
+  alert("학습 알림이 꺼졌습니다.");
+  renderDaily();
+}
+
+function maybeShowDailyReminder(){
+  const store = ensureDailyStoreShape(readDailyStore());
+  if(!store.notifyEnabled || !("Notification" in window) || Notification.permission !== "granted") return;
+
+  const time = store.notifyTime || "20:00";
+  const parts = time.split(":").map(Number);
+  const targetHour = Number.isFinite(parts[0]) ? parts[0] : 20;
+  const targetMinute = Number.isFinite(parts[1]) ? parts[1] : 0;
+  const now = new Date();
+  const isAfterTarget = now.getHours() > targetHour || (now.getHours() === targetHour && now.getMinutes() >= targetMinute);
+  if(!isAfterTarget) return;
+
+  if(typeof isTodayFullyComplete === "function" && isTodayFullyComplete()) return;
+
+  const reminderKey = `${todayKey()}_${time}`;
+  if(store.lastReminderKey === reminderKey) return;
+  store.lastReminderKey = reminderKey;
+  writeDailyStore(store);
+
+  new Notification("오늘의 형용사 학습",{body:"오늘의 형용사 5개 학습을 진행할 시간입니다."});
+}
+function renderDailyStats(){
+  const store=readDailyStore();
+  $("#attendanceDays").textContent=`${store.attendance.length}일`;
+  $("#streakDays").textContent=`${store.streak}일`;
+  $("#totalPoints").textContent=`${store.points}점`;
+}
+function renderDaily(){
+  const iCompleted = isTypeComplete("i");
+  if(dailyState.type === "na" && !iCompleted){
+    dailyState.type = "i";
+  }
+  const type=dailyState.type, items=getDailyWords(type), completed=getCompletedSet(type);
+  if(!items.length)return;
+  if(dailyState.index>=items.length)dailyState.index=0;
+  const item=items[dailyState.index], f=conj(item,state.form), e=ex(item,state.form);
+  $$(".daily-type-btn").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.dailyType===type);
+    btn.classList.toggle("locked",btn.dataset.dailyType==="na" && !isTypeComplete("i"));
+  });
+  if($("#dailyLockText")){
+    $("#dailyLockText").textContent = isTypeComplete("i")
+      ? "이형용사 완료. 이제 나형용사 5개를 학습하세요."
+      : "이형용사 5개를 완료하면 나형용사가 열립니다.";
+  }
+  $("#dailyTitle").textContent=type==="i"?"1단계: 이(い)형용사 오늘 학습":"2단계: 나(な)형용사 오늘 학습";
+  $("#dailyProgressText").textContent=`${completed.size} / ${items.length}`;
+  $("#dailyBar").style.width=`${Math.round((completed.size/items.length)*100)}%`;
+  $("#dailyCard").classList.toggle("na",type==="na");
+  $("#dailyWord").innerHTML=markupKanjiReading(f.value,f.reading);
+  $("#dailyMeaning").textContent=item.meaning;
+  $("#dailyExample").innerHTML=markupExampleSentence(item,f.value,f.reading,e.jp);
+  $("#dailyKo").textContent=e.ko;
+  $("#dailyList").innerHTML=items.map((w,idx)=>{
+    const done=completed.has(w.id);
+    return `<div class="daily-item ${done?"done":""}" data-daily-index="${idx}">
+      <div><div class="daily-item-word">${markupKanjiReading(w.word,w.reading)}</div><span class="daily-item-meaning">${w.meaning}</span></div>
+      <span class="daily-done-pill">${done?"완료":"학습"}</span>
+    </div>`;
+  }).join("");
+  renderDailyStats(); renderAttendanceCalendar();
+}
+
+const $=s=>document.querySelector(s); const $$=s=>document.querySelectorAll(s);
+function stemI(s){return s.endsWith("い")?s.slice(0,-1):s}
+function conj(it,key){let i=it.type==="i",s=stemI(it.word),r=stemI(it.reading); if(i){let m={base:[it.word,it.reading],polite:[it.word+"です",it.reading+"です"],negative:[s+"くない",r+"くない"],past:[s+"かった",r+"かった"],conditional:[s+"ければ",r+"ければ"],te:[s+"くて",r+"くて"],adverb:[s+"く",r+"く"]};return{value:m[key][0],reading:m[key][1]}} let m={base:[it.word+"だ",it.reading+"だ"],polite:[it.word+"です",it.reading+"です"],negative:[it.word+"ではない",it.reading+"ではない"],past:[it.word+"だった",it.reading+"だった"],conditional:[it.word+"なら",it.reading+"なら"],te:[it.word+"で",it.reading+"で"],adverb:[it.word+"に",it.reading+"に"]};return{value:m[key][0],reading:m[key][1]}}
+
+function primaryMeaning(meaning){
+  return String(meaning).split(/[,/]/)[0].trim();
+}
+
+function hasBatchim(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return false;
+  return ((code - 0xAC00) % 28) !== 0;
+}
+
+function jongIndex(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return 0;
+  return (code - 0xAC00) % 28;
+}
+
+function vowelIndex(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return -1;
+  return Math.floor(((code - 0xAC00) % 588) / 28);
+}
+
+function addBatchim(ch, jong){
+  const code = ch.charCodeAt(0);
+  const base = code - 0xAC00;
+  const cho = Math.floor(base / 588);
+  const jung = Math.floor((base % 588) / 28);
+  return String.fromCharCode(0xAC00 + cho * 588 + jung * 28 + jong);
+}
+
+function removeBatchim(ch){
+  const code = ch.charCodeAt(0);
+  const base = code - 0xAC00;
+  const cho = Math.floor(base / 588);
+  const jung = Math.floor((base % 588) / 28);
+  return String.fromCharCode(0xAC00 + cho * 588 + jung * 28);
+}
+
+function topicParticle(noun){
+  const clean = String(noun).trim();
+  const ch = clean[clean.length-1];
+  return hasBatchim(ch) ? "은" : "는";
+}
+
+function combineFormalPresent(word){
+  if(word.endsWith("하다")) return word.slice(0,-2) + "합니다";
+  if(word.endsWith("이다")) return word.slice(0,-2) + "입니다";
+  if(!word.endsWith("다")) return word;
+  const stem = word.slice(0,-1);
+  const last = stem[stem.length-1];
+  if(/[가-힣]/.test(last) && !hasBatchim(last)){
+    return stem.slice(0,-1) + addBatchim(last, 17) + "니다"; // 17 = ㅂ
+  }
+  return stem + "습니다";
+}
+
+function combineNegative(word){
+  if(word.endsWith("이다")) return word.slice(0,-2) + "이/가 아닙니다";
+  if(word.endsWith("하다")) return word.slice(0,-2) + "하지 않습니다";
+  if(word.endsWith("되다")) return word.slice(0,-1) + "지 않습니다";
+  if(word.endsWith("다")) return word.slice(0,-1) + "지 않습니다";
+  return word + "이/가 아닙니다";
+}
+
+function combinePast(word){
+  const overrides = {
+    "좋다":"좋았습니다","나쁘다":"나빴습니다","예쁘다":"예뻤습니다","귀엽다":"귀여웠습니다","아름답다":"아름다웠습니다",
+    "쉽다":"쉬웠습니다","어렵다":"어려웠습니다","가깝다":"가까웠습니다","무겁다":"무거웠습니다","가볍다":"가벼웠습니다",
+    "뜨겁다":"뜨거웠습니다","차갑다":"차가웠습니다","시끄럽다 / 귀찮게 굴다":"시끄러웠습니다","더럽다 / 지저분하다":"더러웠습니다","외롭다 / 쓸쓸하다":"외로웠습니다",
+    "즐겁다":"즐거웠습니다","괴롭다":"괴로웠습니다","반갑다":"반가웠습니다","아프다":"아팠습니다","기쁘다":"기뻤습니다",
+    "슬프다":"슬펐습니다","바쁘다":"바빴습니다","예쁘다":"예뻤습니다","멋있다":"멋있었습니다","재미있다 / 흥미롭다":"재미있었습니다",
+    "재미없다":"재미없었습니다","맛있다":"맛있었습니다","맛없다 / 형편없다":"맛없었습니다","가난하다":"가난했습니다","행복하다":"행복했습니다",
+    "불행하다":"불행했습니다","유명하다":"유명했습니다","조용하다":"조용했습니다","편리하다":"편리했습니다","불편하다":"불편했습니다",
+    "중요하다":"중요했습니다","필요하다":"필요했습니다","안전하다":"안전했습니다","위험하다":"위험했습니다","건강하다":"건강했습니다",
+    "가능하다":"가능했습니다","불가능하다":"불가능했습니다","자연스럽다":"자연스러웠습니다","부자연스럽다":"부자연스러웠습니다",
+    "자유롭다":"자유로웠습니다","평화롭다":"평화로웠습니다","멋스럽다 / 세련되다":"멋스러웠습니다","특별하다":"특별했습니다",
+    "정확하다":"정확했습니다","부정확하다":"부정확했습니다","애매하다 / 모호하다":"애매했습니다","명확하다":"명확했습니다",
+    "급속하다":"급속했습니다","갑작스럽다 / 급하다":"갑작스러웠습니다","활발하다":"활발했습니다","유연하다":"유연했습니다",
+    "화려하다 / 튀다":"화려했습니다","풍부하다 / 넉넉하다":"풍부했습니다","침착하다 / 냉정하다":"침착했습니다","불만스럽다":"불만스러웠습니다"
+  };
+  if(overrides[word]) return overrides[word];
+  if(word.endsWith("하다")) return word.slice(0,-2) + "했습니다";
+  if(word.endsWith("이다")) return word.slice(0,-2) + "였습니다";
+  if(!word.endsWith("다")) return word;
+  const stem = word.slice(0,-1);
+  const last = stem[stem.length-1];
+  if(!/[가-힣]/.test(last)) return stem + "었습니다";
+
+  // 르 irregular
+  if(stem.endsWith("르")){
+    const prev = stem[stem.length-2];
+    const v = vowelIndex(prev);
+    const repl = (v===0 || v===8) ? "랐습니다" : "렀습니다";
+    return stem.slice(0,-2) + addBatchim(prev,8) + repl; // 8 = ㄹ
+  }
+
+  // ㅂ irregular adjectives
+  if(jongIndex(last)===17){
+    return stem.slice(0,-1) + removeBatchim(last) + "웠습니다";
+  }
+
+  // ㅡ irregular
+  if(vowelIndex(last)===18 && !hasBatchim(last)){
+    return stem.slice(0,-1) + "었습니다";
+  }
+
+  const v = vowelIndex(last);
+  const tail = (v===0 || v===8) ? "았습니다" : "었습니다";
+  return stem + tail;
+}
+
+function combineConditional(word){
+  const overrides = {
+    "좋다":"좋으면","나쁘다":"나쁘면","예쁘다":"예쁘면","귀엽다":"귀여우면","아름답다":"아름다우면",
+    "쉽다":"쉬우면","어렵다":"어려우면","가깝다":"가까우면","무겁다":"무거우면","가볍다":"가벼우면",
+    "뜨겁다":"뜨거우면","차갑다":"차가우면","시끄럽다 / 귀찮게 굴다":"시끄러우면","더럽다 / 지저분하다":"더러우면","외롭다 / 쓸쓸하다":"외로우면",
+    "즐겁다":"즐거우면","아프다":"아프면","기쁘다":"기쁘면","슬프다":"슬프면","바쁘다":"바쁘면",
+    "재미있다 / 흥미롭다":"재미있으면","재미없다":"재미없으면","맛있다":"맛있으면","맛없다 / 형편없다":"맛없으면",
+    "자유롭다":"자유로우면","평화롭다":"평화로우면","자연스럽다":"자연스러우면","부자연스럽다":"부자연스러우면",
+    "갑작스럽다 / 급하다":"갑작스러우면","불만스럽다":"불만스러우면","멋스럽다 / 세련되다":"멋스러우면"
+  };
+  if(overrides[word]) return overrides[word];
+  if(word.endsWith("하다")) return word.slice(0,-2) + "하면";
+  if(word.endsWith("이다")) return word.slice(0,-2) + "이면";
+  if(!word.endsWith("다")) return word;
+  const stem = word.slice(0,-1);
+  const last = stem[stem.length-1];
+  return hasBatchim(last) ? stem + "으면" : stem + "면";
+}
+
+function combineConnective(word){
+  const overrides = {
+    "좋다":"좋고","나쁘다":"나쁘고","예쁘다":"예쁘고","귀엽다":"귀엽고","아름답다":"아름답고",
+    "쉽다":"쉽고","어렵다":"어렵고","가깝다":"가깝고","무겁다":"무겁고","가볍다":"가볍고",
+    "뜨겁다":"뜨겁고","차갑다":"차갑고","시끄럽다 / 귀찮게 굴다":"시끄럽고","더럽다 / 지저분하다":"더럽고","외롭다 / 쓸쓸하다":"외롭고",
+    "즐겁다":"즐겁고","아프다":"아프고","기쁘다":"기쁘고","슬프다":"슬프고","바쁘다":"바쁘고",
+    "재미있다 / 흥미롭다":"재미있고","재미없다":"재미없고","맛있다":"맛있고","맛없다 / 형편없다":"맛없고"
+  };
+  if(overrides[word]) return overrides[word];
+  if(word.endsWith("이다")) return word.slice(0,-2) + "이고";
+  if(word.endsWith("다")) return word.slice(0,-1) + "고";
+  return word + "고";
+}
+
+function combineAdverb(word){
+  const overrides = {
+    "좋다":"좋게","나쁘다":"나쁘게","쉽다":"쉽게","어렵다":"어렵게","빠르다":"빠르게","이르다":"이르게",
+    "멋있다":"멋있게","재미있다 / 흥미롭다":"재미있게","재미없다":"재미없게","맛있다":"맛있게","맛없다 / 형편없다":"맛없게",
+    "귀엽다":"귀엽게","아름답다":"아름답게","자유롭다":"자유롭게","평화롭다":"평화롭게","자연스럽다":"자연스럽게",
+    "부자연스럽다":"부자연스럽게","멋스럽다 / 세련되다":"멋스럽게","갑작스럽다 / 급하다":"갑작스럽게"
+  };
+  if(overrides[word]) return overrides[word];
+  if(word.endsWith("이다")) return word.slice(0,-2) + "이게";
+  if(word.endsWith("다")) return word.slice(0,-1) + "게";
+  return word + "하게";
+}
+
+function koLine(it,key){
+  const mean = primaryMeaning(it.meaning);
+  const topic = topicParticle(it.nounKo);
+  const subject = `이 ${it.nounKo}${topic}`;
+  const yesterday = `어제 ${it.nounKo}${topic}`;
+  const t = {
+    base: `${subject} ${combineFormalPresent(mean)}.`,
+    polite: `${subject} ${combineFormalPresent(mean)}.`,
+    negative: `${subject} ${combineNegative(mean)}.`,
+    past: `${yesterday} ${combinePast(mean)}.`,
+    conditional: `${combineConditional(mean)} 좋겠습니다.`,
+    te: `${subject} ${combineConnective(mean)} 좋습니다.`,
+    adverb: `더 ${combineAdverb(mean)} 해 주세요.`
+  };
+  return t[key] || `${subject} ${combineFormalPresent(mean)}.`;
+}
+
+
+
+function primaryMeaning(meaning){
+  return String(meaning).split(/[,/]/)[0].trim();
+}
+
+function hasBatchim(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return false;
+  return ((code - 0xAC00) % 28) !== 0;
+}
+
+function jongIndex(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return 0;
+  return (code - 0xAC00) % 28;
+}
+
+function vowelIndex(ch){
+  const code = ch.charCodeAt(0);
+  if(code < 0xAC00 || code > 0xD7A3) return -1;
+  return Math.floor(((code - 0xAC00) % 588) / 28);
+}
+
+function addBatchim(ch, jong){
+  const code = ch.charCodeAt(0);
+  const base = code - 0xAC00;
+  const cho = Math.floor(base / 588);
+  const jung = Math.floor((base % 588) / 28);
+  return String.fromCharCode(0xAC00 + cho * 588 + jung * 28 + jong);
+}
+
+function removeBatchim(ch){
+  const code = ch.charCodeAt(0);
+  const base = code - 0xAC00;
+  const cho = Math.floor(base / 588);
+  const jung = Math.floor((base % 588) / 28);
+  return String.fromCharCode(0xAC00 + cho * 588 + jung * 28);
+}
+
+function topicParticle(noun){
+  const clean = String(noun).trim();
+  const ch = clean[clean.length - 1];
+  return hasBatchim(ch) ? "은" : "는";
+}
+
+function objectParticle(noun){
+  const clean = String(noun).trim();
+  const ch = clean[clean.length - 1];
+  return hasBatchim(ch) ? "을" : "를";
+}
+
+function koInfo(it){
+  const map = {
+    "高い":["높다","높은","높게"], "安い":["싸다","싼","싸게"], "大きい":["크다","큰","크게"], "小さい":["작다","작은","작게"],
+    "新しい":["새롭다","새로운","새롭게"], "古い":["낡다","낡은","낡게"], "良い":["좋다","좋은","좋게"], "悪い":["나쁘다","나쁜","나쁘게"],
+    "暑い":["덥다","더운","덥게"], "寒い":["춥다","추운","춥게"], "熱い":["뜨겁다","뜨거운","뜨겁게"], "冷たい":["차갑다","차가운","차갑게"],
+    "暖かい":["따뜻하다","따뜻한","따뜻하게"], "涼しい":["시원하다","시원한","시원하게"], "明るい":["밝다","밝은","밝게"], "暗い":["어둡다","어두운","어둡게"],
+    "広い":["넓다","넓은","넓게"], "狭い":["좁다","좁은","좁게"], "重い":["무겁다","무거운","무겁게"], "軽い":["가볍다","가벼운","가볍게"],
+    "長い":["길다","긴","길게"], "短い":["짧다","짧은","짧게"], "太い":["굵다","굵은","굵게"], "細い":["가늘다","가는","가늘게"],
+    "厚い":["두껍다","두꺼운","두껍게"], "薄い":["얇다","얇은","얇게"], "強い":["강하다","강한","강하게"], "弱い":["약하다","약한","약하게"],
+    "早い":["이르다","이른","일찍"], "速い":["빠르다","빠른","빠르게"], "遅い":["늦다","늦은","늦게"], "忙しい":["바쁘다","바쁜","바쁘게"],
+    "楽しい":["즐겁다","즐거운","즐겁게"], "面白い":["재미있다","재미있는","재미있게"], "つまらない":["재미없다","재미없는","재미없게"],
+    "難しい":["어렵다","어려운","어렵게"], "易しい":["쉽다","쉬운","쉽게"], "優しい":["상냥하다","상냥한","상냥하게"], "怖い":["무섭다","무서운","무섭게"],
+    "痛い":["아프다","아픈","아프게"], "眠い":["졸리다","졸린","졸리게"], "眠たい":["졸리다","졸린","졸리게"], "若い":["젊다","젊은","젊게"],
+    "近い":["가깝다","가까운","가깝게"], "遠い":["멀다","먼","멀게"], "多い":["많다","많은","많이"], "少ない":["적다","적은","적게"],
+    "美味しい":["맛있다","맛있는","맛있게"], "まずい":["맛없다","맛없는","맛없게"], "甘い":["달다","단","달게"], "辛い":["맵다","매운","맵게"],
+    "苦い":["쓰다","쓴","쓰게"], "酸っぱい":["시다","신","시게"], "塩辛い":["짜다","짠","짜게"], "うるさい":["시끄럽다","시끄러운","시끄럽게"],
+    "汚い":["더럽다","더러운","더럽게"], "恥ずかしい":["부끄럽다","부끄러운","부끄럽게"], "寂しい":["외롭다","외로운","외롭게"],
+    "悲しい":["슬프다","슬픈","슬프게"], "嬉しい":["기쁘다","기쁜","기쁘게"], "可愛い":["귀엽다","귀여운","귀엽게"], "かっこいい":["멋있다","멋있는","멋있게"],
+    "美しい":["아름답다","아름다운","아름답게"], "珍しい":["드물다","드문","드물게"], "正しい":["옳다","옳은","바르게"], "詳しい":["자세하다","자세한","자세하게"],
+    "欲しい":["갖고 싶다","갖고 싶은","갖고 싶게"], "すごい":["대단하다","대단한","대단하게"], "赤い":["빨갛다","빨간","빨갛게"],
+    "青い":["파랗다","파란","파랗게"], "白い":["하얗다","하얀","하얗게"], "黒い":["검다","검은","검게"], "丸い":["둥글다","둥근","둥글게"], "危ない":["위험하다","위험한","위험하게"],
+    "静か":["조용하다","조용한","조용히"], "賑やか":["활기차다","활기찬","활기차게"], "有名":["유명하다","유명한","유명하게"],
+    "親切":["친절하다","친절한","친절하게"], "元気":["건강하다","건강한","건강하게"], "便利":["편리하다","편리한","편리하게"], "不便":["불편하다","불편한","불편하게"],
+    "簡単":["간단하다","간단한","간단하게"], "複雑":["복잡하다","복잡한","복잡하게"], "安全":["안전하다","안전한","안전하게"], "危険":["위험하다","위험한","위험하게"],
+    "大切":["소중하다","소중한","소중하게"], "必要":["필요하다","필요한","필요하게"], "自由":["자유롭다","자유로운","자유롭게"], "暇":["한가하다","한가한","한가하게"],
+    "好き":["좋아하다","좋아하는","좋아하게"], "嫌い":["싫어하다","싫어하는","싫어하게"], "上手":["잘하다","잘하는","능숙하게"], "下手":["서투르다","서투른","서투르게"],
+    "得意":["자신 있다","자신 있는","자신 있게"], "苦手":["서투르다","서투른","서투르게"], "丈夫":["튼튼하다","튼튼한","튼튼하게"], "丁寧":["정중하다","정중한","정중하게"],
+    "失礼":["무례하다","무례한","무례하게"], "真面目":["성실하다","성실한","성실하게"], "熱心":["열심이다","열심인","열심히"], "新鮮":["신선하다","신선한","신선하게"],
+    "特別":["특별하다","특별한","특별하게"], "普通":["보통이다","보통인","보통으로"], "十分":["충분하다","충분한","충분히"], "残念":["아쉽다","아쉬운","아쉽게"],
+    "心配":["걱정스럽다","걱정스러운","걱정스럽게"], "大丈夫":["괜찮다","괜찮은","괜찮게"], "きれい":["예쁘다","예쁜","예쁘게"], "嫌":["싫다","싫은","싫게"],
+    "楽":["편하다","편한","편하게"], "無理":["무리다","무리인","무리하게"], "同じ":["같다","같은","같게"], "色々":["다양하다","다양한","다양하게"],
+    "変":["이상하다","이상한","이상하게"], "素敵":["근사하다","근사한","근사하게"], "おしゃれ":["멋스럽다","멋스러운","멋스럽게"], "かわいそう":["안쓰럽다","안쓰러운","안쓰럽게"],
+    "幸せ":["행복하다","행복한","행복하게"], "不幸":["불행하다","불행한","불행하게"], "正直":["솔직하다","솔직한","솔직하게"], "素直":["순수하다","순수한","순수하게"],
+    "頑固":["고집이 세다","고집이 센","고집스럽게"], "重要":["중요하다","중요한","중요하게"], "急":["갑작스럽다","갑작스러운","갑작스럽게"], "急速":["급속하다","급속한","급속하게"],
+    "自然":["자연스럽다","자연스러운","자연스럽게"], "不自然":["부자연스럽다","부자연스러운","부자연스럽게"], "健康":["건강하다","건강한","건강하게"],
+    "不健康":["건강에 좋지 않다","건강에 좋지 않은","건강에 좋지 않게"], "明確":["명확하다","명확한","명확하게"], "曖昧":["애매하다","애매한","애매하게"],
+    "適当":["적당하다","적당한","적당하게"], "可能":["가능하다","가능한","가능하게"], "不可能":["불가능하다","불가능한","불가능하게"], "確か":["확실하다","확실한","확실하게"],
+    "豊か":["풍부하다","풍부한","풍부하게"], "貧乏":["가난하다","가난한","가난하게"], "巨大":["거대하다","거대한","거대하게"], "平和":["평화롭다","평화로운","평화롭게"],
+    "退屈":["지루하다","지루한","지루하게"], "満足":["만족하다","만족한","만족스럽게"], "不満":["불만스럽다","불만스러운","불만스럽게"], "冷静":["침착하다","침착한","침착하게"],
+    "活発":["활발하다","활발한","활발하게"], "柔軟":["유연하다","유연한","유연하게"], "正確":["정확하다","정확한","정확하게"], "不正確":["부정확하다","부정확한","부정확하게"],
+    "無駄":["헛되다","헛된","헛되게"], "派手":["화려하다","화려한","화려하게"]
+  };
+  const fallback = primaryMeaning(it.meaning);
+  const picked = map[it.word] || [fallback, fallback, fallback];
+  return {pred:picked[0], attr:picked[1], adv:picked[2]};
+}
+
+function combineFormalPresent(word){
+  if(word.endsWith("하다")) return word.slice(0,-2)+"합니다";
+  if(word.endsWith("이다")) return word.slice(0,-2)+"입니다";
+  if(word.endsWith("있다")) return word.slice(0,-1)+"습니다";
+  if(word.endsWith("없다")) return word.slice(0,-1)+"습니다";
+  if(word === "무리다") return "무리입니다";
+  if(word === "같다") return "같습니다";
+  if(word === "옳다") return "옳습니다";
+  if(word === "괜찮다") return "괜찮습니다";
+  if(!word.endsWith("다")) return word+"입니다";
+  const stem = word.slice(0,-1);
+  const last = stem[stem.length-1];
+  if(/[가-힣]/.test(last) && !hasBatchim(last)) return stem.slice(0,-1)+addBatchim(last,17)+"니다";
+  return stem+"습니다";
+}
+
+function combineNegative(word){
+  if(word.endsWith("하다")) return word.slice(0,-2)+"하지 않습니다";
+  if(word.endsWith("이다")) return word.slice(0,-2)+"이/가 아닙니다";
+  if(word.endsWith("있다")) return word.slice(0,-1)+"지 않습니다";
+  if(word.endsWith("없다")) return word.slice(0,-1)+"지 않습니다";
+  if(word.endsWith("다")) return word.slice(0,-1)+"지 않습니다";
+  return word+"이/가 아닙니다";
+}
+
+function combinePast(word){
+  const o = {"좋다":"좋았습니다","나쁘다":"나빴습니다","예쁘다":"예뻤습니다","아프다":"아팠습니다","기쁘다":"기뻤습니다","슬프다":"슬펐습니다","바쁘다":"바빴습니다","크다":"컸습니다","쓰다":"썼습니다","시다":"셨습니다","짜다":"짰습니다","달다":"달았습니다","길다":"길었습니다","짧다":"짧았습니다","많다":"많았습니다","적다":"적었습니다","같다":"같았습니다","옳다":"옳았습니다","검다":"검었습니다","둥글다":"둥글었습니다","하얗다":"하얬습니다","빨갛다":"빨갰습니다","파랗다":"파랬습니다","무리다":"무리였습니다","보통이다":"보통이었습니다"};
+  if(o[word]) return o[word];
+  if(word.endsWith("하다")) return word.slice(0,-2)+"했습니다";
+  if(word.endsWith("스럽다")) return word.slice(0,-3)+"스러웠습니다";
+  if(word.endsWith("롭다")) return word.slice(0,-2)+"로웠습니다";
+  if(word.endsWith("겁다")) return word.slice(0,-2)+"거웠습니다";
+  if(word.endsWith("깝다")) return word.slice(0,-2)+"까웠습니다";
+  if(word.endsWith("갑다")) return word.slice(0,-2)+"가웠습니다";
+  if(word.endsWith("답다")) return word.slice(0,-2)+"다웠습니다";
+  if(word.endsWith("럽다")) return word.slice(0,-2)+"러웠습니다";
+  if(word.endsWith("르다")) return word.slice(0,-2)+"랐습니다";
+  if(word.endsWith("있다")) return word.slice(0,-1)+"었습니다";
+  if(word.endsWith("없다")) return word.slice(0,-1)+"었습니다";
+  if(word.endsWith("다")) return word.slice(0,-1)+"었습니다";
+  return word+"였습니다";
+}
+
+function combineConditional(word){
+  if(word.endsWith("하다")) return word.slice(0,-2)+"하면";
+  if(word.endsWith("이다")) return word.slice(0,-2)+"이면";
+  if(word.endsWith("럽다")) return word.slice(0,-2)+"러우면";
+  if(word.endsWith("롭다")) return word.slice(0,-2)+"로우면";
+  if(word.endsWith("겁다")) return word.slice(0,-2)+"거우면";
+  if(word.endsWith("깝다")) return word.slice(0,-2)+"까우면";
+  if(word.endsWith("답다")) return word.slice(0,-2)+"다우면";
+  if(word.endsWith("르다")) return word.slice(0,-1)+"면";
+  if(word.endsWith("다")){
+    const stem = word.slice(0,-1);
+    const last = stem[stem.length-1];
+    return hasBatchim(last) ? stem+"으면" : stem+"면";
+  }
+  return word+"이면";
+}
+
+function combineConnective(word){
+  if(word.endsWith("이다")) return word.slice(0,-2)+"이고";
+  if(word.endsWith("다")) return word.slice(0,-1)+"고";
+  return word+"이고";
+}
+
+function isExperienceWord(word){
+  return ["好き","嫌い","上手","下手","得意","苦手","欲しい"].includes(word);
+}
+
+function koLine(it,key){
+  const info = koInfo(it);
+  const pred = info.pred;
+  const adv = info.adv;
+  const subj = `이 ${it.nounKo}${topicParticle(it.nounKo)}`;
+
+  const baseSpecial = {
+    "好き":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 좋아합니다.`,
+    "嫌い":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 싫어합니다.`,
+    "上手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 잘합니다.`,
+    "下手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 서툽니다.`,
+    "得意":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 자신 있습니다.`,
+    "苦手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 어려워합니다.`,
+    "欲しい":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 갖고 싶습니다.`
+  };
+  const negSpecial = {
+    "好き":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 좋아하지 않습니다.`,
+    "嫌い":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 싫어하지 않습니다.`,
+    "上手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 잘하지 못합니다.`,
+    "下手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 서투르지 않습니다.`,
+    "得意":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 자신 있지 않습니다.`,
+    "苦手":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 어려워하지 않습니다.`,
+    "欲しい":`저는 ${it.nounKo}${objectParticle(it.nounKo)} 갖고 싶지 않습니다.`
+  };
+
+  if(key==="base" || key==="polite") return baseSpecial[it.word] || `${subj} ${combineFormalPresent(pred)}.`;
+  if(key==="negative") return negSpecial[it.word] || `${subj} ${combineNegative(pred)}.`;
+  if(key==="past") return isExperienceWord(it.word) ? (baseSpecial[it.word] || `${subj} ${combineFormalPresent(pred)}.`).replace("합니다.","했습니다.").replace("습니다.","었습니다.") : `어제 ${it.nounKo}${topicParticle(it.nounKo)} ${combinePast(pred)}.`;
+  if(key==="conditional") return `${combineConditional(pred)} 좋겠습니다.`;
+  if(key==="te") return `${subj} ${combineConnective(pred)} 좋습니다.`;
+  if(key==="adverb") return `더 ${adv} 해 주세요.`;
+  return `${subj} ${combineFormalPresent(pred)}.`;
+}
+
+function ex(it,key){
+  let f=conj(it,key);
+  let t={
+    base:[`この${it.noun}は${it.word}です。`,`この ${it.nounReading}は ${it.reading}です。`,koLine(it,"base")],
+    polite:[`この${it.noun}は${f.value}。`,`この ${it.nounReading}は ${f.reading}。`,koLine(it,"polite")],
+    negative:[`この${it.noun}は${f.value}です。`,`この ${it.nounReading}は ${f.reading}です。`,koLine(it,"negative")],
+    past:[`昨日の${it.noun}は${f.value}です。`,`きのうの ${it.nounReading}は ${f.reading}です。`,koLine(it,"past")],
+    conditional:[`この${it.noun}が${f.value}、いいです。`,`この ${it.nounReading}が ${f.reading}、いいです。`,koLine(it,"conditional")],
+    te:[`この${it.noun}は${f.value}、いいです。`,`この ${it.nounReading}は ${f.reading}、いいです。`,koLine(it,"te")],
+    adverb:[`もっと${f.value}してください。`,`もっと ${f.reading} してください。`,koLine(it,"adverb")]
+  }[key];
+  return{jp:t[0],kana:t[1],ko:t[2]}
+}
+
+function hasKanjiChar(ch){
+  return /[\u4E00-\u9FFF]/.test(ch);
+}
+
+function escapeHtml(str){
+  return String(str)
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+
+function markupKanjiReading(word, reading){
+  const text = String(word);
+  const yomi = String(reading);
+
+  const special = {
+    "使いたい": "使<span class=\"kana-in-kanji\">(つか)</span>いたい",
+    "使って": "使<span class=\"kana-in-kanji\">(つか)</span>って",
+    "使": "使<span class=\"kana-in-kanji\">(つか)</span>",
+    "考え方": "考<span class=\"kana-in-kanji\">(かんが)</span>え方<span class=\"kana-in-kanji\">(かた)</span>",
+    "言い方": "言<span class=\"kana-in-kanji\">(い)</span>い方<span class=\"kana-in-kanji\">(かた)</span>",
+    "子ども": "子<span class=\"kana-in-kanji\">(こ)</span>ども"
+  };
+
+  if(special[text]) return special[text];
+
+  const match = text.match(/^([\u4E00-\u9FFF]+)(.*)$/);
+  if(!match){
+    return escapeHtml(text);
+  }
+
+  const kanjiPart = match[1];
+  const rest = match[2] || "";
+  let kanjiReading = yomi;
+
+  if(rest && yomi.endsWith(rest)){
+    kanjiReading = yomi.slice(0, yomi.length - rest.length);
+  }
+
+  if(!kanjiReading) kanjiReading = yomi;
+
+  return `${escapeHtml(kanjiPart)}<span class="kana-in-kanji">(${escapeHtml(kanjiReading)})</span>${escapeHtml(rest)}`;
+}
+
+function replaceAllSafe(source, target, replacement){
+  return source.split(escapeHtml(target)).join(replacement);
+}
+
+function markupExampleSentence(item, formValue, formReading, exJp){
+  let text = String(exJp);
+
+  const replacements = [
+    [formValue, formReading],
+    [item.word, item.reading],
+    [item.noun, item.nounReading],
+    ["昨日", "きのう"],
+    ["使いたい", "つかいたい"],
+    ["使って", "つかって"]
+  ]
+    .filter(pair => pair[0] && /[\u4E00-\u9FFF]/.test(pair[0]))
+    .sort((a, b) => b[0].length - a[0].length);
+
+  let result = "";
+  let i = 0;
+
+  while(i < text.length){
+    let matched = null;
+
+    for(const pair of replacements){
+      const word = pair[0];
+      const reading = pair[1];
+      if(text.startsWith(word, i)){
+        matched = [word, reading];
+        break;
+      }
+    }
+
+    if(matched){
+      result += markupKanjiReading(matched[0], matched[1]);
+      i += matched[0].length;
+    } else {
+      result += escapeHtml(text[i]);
+      i += 1;
+    }
+  }
+
+  return result;
+}
+
+function speak(text){if(!window.speechSynthesis){alert("이 브라우저에서는 음성 발음을 지원하지 않습니다.");return} speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.85;speechSynthesis.speak(u)}
+function formTabs(){$("#formTabs").innerHTML=forms.map(f=>`<button class="form-btn ${state.form===f.key?"active":""}" data-form="${f.key}">${f.label}</button>`).join("")}
+function filter(){let q=$("#search").value.trim().toLowerCase();state.filtered=words.filter(it=>(state.type==="all"||it.type===state.type)&&`${it.word} ${it.reading} ${it.meaning} ${it.noun} ${it.nounReading}`.toLowerCase().includes(q));if(state.index>=state.filtered.length)state.index=0}
+function render(){filter();let it=state.filtered[state.index];$("#count").textContent=`${state.filtered.length}개`;$("#idx").textContent=state.filtered.length?`${state.index+1} / ${state.filtered.length}`:"0 / 0";if(!it){$("#frontWord").textContent="검색 결과 없음";$("#frontReading").textContent="";$("#list").innerHTML="";return}let f=conj(it,state.form),e=ex(it,state.form),typeText=it.type==="i"?"이(い)형용사":"나(な)형용사";$("#card").className=`card ${it.type}`;$("#frontType").textContent=typeText;$("#backType").textContent=typeText;$("#frontWord").innerHTML=markupKanjiReading(f.value,f.reading);$("#frontReading").textContent="";$("#meaning").textContent=it.meaning;$("#formValue").innerHTML=markupKanjiReading(f.value,f.reading);$("#formReading").textContent="";$("#exJp").innerHTML=markupExampleSentence(it,f.value,f.reading,e.jp);$("#exKana").textContent="";$("#exKo").textContent=e.ko;$("#list").innerHTML=state.filtered.map((w,i)=>`<button class="word ${i===state.index?"now":""}" data-index="${i}"><span><strong>${w.word}</strong><span>${w.reading} · ${w.meaning}</span></span><b class="pill">${w.type==="i"?"い":"な"}</b></button>`).join("")}
+function quiz(){
+  filter();
+  if(state.filtered.length<4){
+    $("#question").textContent="퀴즈를 만들려면 검색 결과가 4개 이상 필요합니다.";
+    $("#choices").innerHTML="";
+    return;
+  }
+  let ans=state.filtered[Math.floor(Math.random()*state.filtered.length)],
+      pool=words.filter(w=>w.id!==ans.id).sort(()=>Math.random()-.5).slice(0,3),
+      choices=[...pool,ans].sort(()=>Math.random()-.5),
+      f=conj(ans,state.form);
+  state.quiz={answer:ans,prompt:f.value};
+  $("#question").innerHTML=`「${markupKanjiReading(f.value,f.reading)}」의 뜻은?`;
+  $("#choices").innerHTML=choices.map(c=>`<button class="choice" data-id="${c.id}">${c.meaning}</button>`).join("");
+  $("#result").textContent="";
+}
+document.addEventListener("click",e=>{let t=e.target.closest(".tab-btn");if(t){state.type=t.dataset.type;state.index=0;$$(".tab-btn").forEach(b=>b.classList.toggle("active",b===t));render();if(state.mode==="quiz")quiz()}let m=e.target.closest(".mode-btn");if(m){state.mode=m.dataset.mode;$$(".mode-btn").forEach(b=>b.classList.toggle("active",b===m));$("#flash").classList.toggle("hidden",state.mode!=="flash");$("#dailyBox").classList.toggle("on",state.mode==="daily");$("#quizBox").classList.toggle("on",state.mode==="quiz");if(state.mode==="quiz")quiz();if(state.mode==="daily")renderDaily()}let f=e.target.closest(".form-btn");if(f){state.form=f.dataset.form;$$(".form-btn").forEach(b=>b.classList.toggle("active",b.dataset.form===state.form));render();if(state.mode==="quiz")quiz()}let w=e.target.closest(".word");if(w){state.index=+w.dataset.index;$("#card").classList.remove("flipped");render()}let c=e.target.closest(".choice");if(c&&state.quiz){let sid=+c.dataset.id;$$(".choice").forEach(b=>{let id=+b.dataset.id;if(id===state.quiz.answer.id)b.classList.add("correct");else if(id===sid)b.classList.add("wrong");b.disabled=true});$("#result").textContent=sid===state.quiz.answer.id?"정답입니다.":`오답입니다. 정답: ${state.quiz.answer.meaning}`}});
+$("#search").addEventListener("input",()=>{state.index=0;render();if(state.mode==="quiz")quiz()});
+$("#prev").onclick=()=>{if(!state.filtered.length)return;state.index=(state.index-1+state.filtered.length)%state.filtered.length;$("#card").classList.remove("flipped");render()};$("#next").onclick=()=>{if(!state.filtered.length)return;state.index=(state.index+1)%state.filtered.length;$("#card").classList.remove("flipped");render()};
+$("#card").addEventListener("click",(e)=>{
+  if(e.target.closest("button")) return;
+  const item = state.filtered[state.index];
+  if(!item) return;
+  $("#card").classList.toggle("flipped");
+  speak(conj(item,state.form).value);
+});
+$("#frontSound").onclick=(e)=>{e.stopPropagation();let it=state.filtered[state.index];if(it)speak(conj(it,state.form).value)};
+$("#wordSound").onclick=(e)=>{e.stopPropagation();let it=state.filtered[state.index];if(it)speak(conj(it,state.form).value)};
+$("#exSound").onclick=(e)=>{e.stopPropagation();let it=state.filtered[state.index];if(it)speak(ex(it,state.form).jp)};
+$("#quizSound").onclick=()=>{if(state.quiz)speak(state.quiz.prompt)};$("#nextQuiz").onclick=quiz;
+
+document.addEventListener("click",e=>{
+  const typeBtn=e.target.closest(".daily-type-btn");
+  if(typeBtn){
+    const nextType = typeBtn.dataset.dailyType;
+    if(nextType === "na" && !isTypeComplete("i")){
+      /* 중복 팝업 제거 */
+      dailyState.type = "i";
+      dailyState.index = 0;
+      renderDaily();
+      return;
+    }
+    dailyState.type=nextType;
+    dailyState.index=0;
+    renderDaily();
+  }
+  const dailyItem=e.target.closest(".daily-item");
+  if(dailyItem){dailyState.index=Number(dailyItem.dataset.dailyIndex);renderDaily()}
+});
+if($("#dailySoundBtn")) $("#dailySoundBtn").addEventListener("click",()=>{
+  const item=getDailyWords(dailyState.type)[dailyState.index];
+  if(item)speak(conj(item,state.form).value);
+});
+if($("#dailyKnownBtn")) $("#dailyKnownBtn").addEventListener("click",()=>{
+  const items=getDailyWords(dailyState.type), item=items[dailyState.index];
+  if(!item)return;
+  const set=getCompletedSet(dailyState.type);
+  set.add(item.id);
+  saveCompletedSet(dailyState.type,set);
+  updateAttendanceAndReward(dailyState.type);
+  if(set.size>=items.length){
+    if(dailyState.type==="i"){
+      alert("이형용사 5개를 완료했습니다. 이제 나형용사 5개를 학습합니다.");
+      dailyState.type="na";
+      dailyState.index=0;
+    }else{
+      alert("나형용사 5개를 완료했습니다. 오늘 학습이 모두 끝났습니다.");
+    }
+  }else{
+    dailyState.index=Math.min(dailyState.index+1,items.length-1);
+  }
+  renderDaily();
+});
+if($("#dailyNotifyBtn")) $("#dailyNotifyBtn").addEventListener("click",requestDailyNotification);
+
+document.addEventListener("click",e=>{
+  const singleCard = e.target.closest("#dailySingleCard");
+  if(singleCard && !e.target.closest("button")){
+    const item = currentDailyItem();
+    if(item) speak(conj(item,"base").value);
+    singleCard.classList.toggle("flipped");
+  }
+
+  const typeBtn=e.target.closest(".daily-type-btn");
+  if(typeBtn){
+    const nextType = typeBtn.dataset.dailyType;
+    if(nextType === "na" && !isTypeComplete("i")){
+      alert("이형용사 75개를 모두 완료하면 나형용사 학습이 열립니다.");
+      dailyState.type = "i";
+      renderDaily();
+      return;
+    }
+    dailyState.type = nextType;
+    dailyState.index = 0;
+    renderDaily();
+  }
+
+  const prevBtn=e.target.closest("#dailyPrevBtn");
+  if(prevBtn){
+    const items = getDailyWords(dailyState.type);
+    if(items.length) dailyState.index = (dailyState.index - 1 + items.length) % items.length;
+    renderDaily();
+  }
+
+  const nextBtn=e.target.closest("#dailyNextBtn");
+  if(nextBtn){
+    const items = getDailyWords(dailyState.type);
+    if(items.length) dailyState.index = (dailyState.index + 1) % items.length;
+    renderDaily();
+  }
+
+  const completeBtn=e.target.closest("#dailyCompleteBtn");
+  if(completeBtn){
+    const item = currentDailyItem();
+    if(!item) return;
+    const set = getCompletedSet(dailyState.type);
+    const wasCompleted = set.has(item.id);
+    set.add(item.id);
+    saveCompletedSet(dailyState.type,set);
+    if(!wasCompleted){
+      markGlobalCompleted(dailyState.type,item.id);
+    }
+    updateAttendanceAndReward(dailyState.type);
+
+    const items = getDailyWords(dailyState.type);
+    if(isTodayStageComplete(dailyState.type)){
+      if(dailyState.type==="i" && isTypeComplete("i")){
+        alert("이형용사 75개를 모두 완료했습니다. 이제 나형용사 학습이 열립니다.");
+        dailyState.type="na";
+        dailyState.index=0;
+      }else if(dailyState.type==="i"){
+        alert("오늘의 이형용사 5개를 완료했습니다.");
+      }else{
+        alert("오늘의 나형용사 5개를 완료했습니다.");
+      }
+    }else{
+      if(items.length) dailyState.index = (dailyState.index + 1) % items.length;
+    }
+    renderDaily();
+  }
+
+  const wordSound=e.target.closest("[data-daily-word-sound]");
+  if(wordSound){
+    const item = currentDailyItem();
+    if(item) speak(conj(item,wordSound.dataset.dailyWordSound).value);
+  }
+
+  const exampleSound=e.target.closest("[data-daily-example-sound]");
+  if(exampleSound){
+    const item = currentDailyItem();
+    if(item) speak(ex(item,exampleSound.dataset.dailyExampleSound).jp);
+  }
+});
+
+
+
+/* 오늘학습 v3: 이형용사 75개 완료 후 나형용사 / 단일 뒤집기 카드 */
+const DAILY_STAGE_COUNT = 75;
+
+function ensureDailyStoreShape(store){
+  if(!store.allCompleted) store.allCompleted = {i:[],na:[]};
+  if(!store.allCompleted.i) store.allCompleted.i = [];
+  if(!store.allCompleted.na) store.allCompleted.na = [];
+  if(!store.stageCompleted) store.stageCompleted = {};
+  if(!store.notifyTime) store.notifyTime = "20:00";
+  if(store.lastReminderKey === undefined) store.lastReminderKey = "";
+  return store;
+}
+
+function allTypeWords(type){
+  return words.filter(w => w.type === type).slice(0, DAILY_STAGE_COUNT);
+}
+
+function getDailyStage(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  const done = new Set(store.allCompleted[type] || []);
+  const total = allTypeWords(type).length;
+  const groupIndex = Math.floor(done.size / DAILY_COUNT);
+  return {
+    done,
+    total,
+    groupIndex,
+    stageStart: groupIndex * DAILY_COUNT,
+    stageEnd: Math.min(groupIndex * DAILY_COUNT + DAILY_COUNT, total)
+  };
+}
+
+function getDailyWords(type){
+  const stage = getDailyStage(type);
+  return allTypeWords(type).slice(stage.stageStart, stage.stageEnd);
+}
+
+function completedKey(type){
+  const stage = getDailyStage(type);
+  return `stage_${type}_${stage.groupIndex}`;
+}
+
+function getCompletedSet(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  return new Set(store.stageCompleted[completedKey(type)] || []);
+}
+
+function saveCompletedSet(type,set){
+  const store = ensureDailyStoreShape(readDailyStore());
+  store.stageCompleted[completedKey(type)] = Array.from(set);
+  writeDailyStore(store);
+}
+
+function markGlobalCompleted(type,id){
+  const store = ensureDailyStoreShape(readDailyStore());
+  if(!store.allCompleted[type].includes(id)) store.allCompleted[type].push(id);
+  writeDailyStore(store);
+}
+
+function isTypeComplete(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  return (store.allCompleted[type] || []).length >= allTypeWords(type).length;
+}
+
+function isTodayStageComplete(type){
+  return getCompletedSet(type).size >= getDailyWords(type).length;
+}
+
+function isTodayFullyComplete(){
+  if(!isTypeComplete("i")) return isTodayStageComplete("i");
+  return isTodayStageComplete("na");
+}
+
+function updateAttendanceAndReward(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  const rewardKey = `${todayKey()}_${type}_${getDailyStage(type).groupIndex}_rewarded`;
+
+  if(!store.rewarded[rewardKey]){
+    store.points += DAILY_POINTS;
+    store.rewarded[rewardKey] = true;
+  }
+
+  if(isTodayFullyComplete() && !store.attendance.includes(todayKey())){
+    const y=new Date(); y.setDate(y.getDate()-1);
+    const yKey=`${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+    store.streak = store.lastCompletedDate === yKey ? store.streak + 1 : 1;
+    store.lastCompletedDate = todayKey();
+    store.attendance.push(todayKey());
+
+    if(store.streak % 3 === 0){
+      store.points += STREAK_BONUS;
+      setTimeout(()=>alert(`3일 연속 학습 완료! 보너스 ${STREAK_BONUS}점을 받았습니다.`),80);
+    }else{
+      setTimeout(()=>alert("오늘 학습 5개를 완료했습니다. 출석 처리되었습니다."),80);
+    }
+  }
+
+  writeDailyStore(store);
+}
+
+function currentDailyItem(){
+  const items = getDailyWords(dailyState.type);
+  if(dailyState.index >= items.length) dailyState.index = Math.max(0,items.length-1);
+  return items[dailyState.index];
+}
+
+function renderDaily(){
+  const iDone = isTypeComplete("i");
+  if(dailyState.type === "na" && !iDone) dailyState.type = "i";
+
+  const type = dailyState.type;
+  const items = getDailyWords(type);
+  const completed = getCompletedSet(type);
+  const stage = getDailyStage(type);
+
+  $$(".daily-type-btn").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.dailyType===type);
+    btn.classList.toggle("locked",btn.dataset.dailyType==="na" && !iDone);
+  });
+
+  if($("#dailyLockText")){
+    $("#dailyLockText").textContent = iDone
+      ? "이형용사 75개 완료. 이제 나형용사 학습을 진행합니다."
+      : `이형용사 전체 ${stage.done.size} / ${stage.total} 완료. 75개를 모두 완료하면 나형용사가 열립니다.`;
+  }
+
+  $("#dailyTitle").textContent = type==="i" ? "이(い)형용사 오늘 학습" : "나(な)형용사 오늘 학습";
+  $("#dailyProgressText").textContent = `${completed.size} / ${items.length}`;
+  $("#dailyBar").style.width = items.length ? `${Math.round((completed.size/items.length)*100)}%` : "0%";
+
+  if($("#dailyStageInfo")){
+    const currentSet = items.length ? `${stage.stageStart + 1}~${stage.stageEnd}` : "완료";
+    $("#dailyStageInfo").textContent = type==="i"
+      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`
+      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`;
+  }
+
+  if(!items.length){
+    $("#dailyFrontWord").textContent = "학습 완료";
+    $("#dailyBackWord").textContent = "학습 완료";
+    $("#dailyBackMeaning").textContent = "오늘 학습할 단어가 없습니다.";
+    $("#dailyFormList").innerHTML = "";
+    renderDailyStats();
+    return;
+  }
+
+  const item = currentDailyItem();
+  const base = conj(item,"base");
+  const done = completed.has(item.id);
+
+  $("#dailySingleCard").classList.remove("flipped");
+  $("#dailySingleCard").classList.toggle("na",type==="na");
+  $("#dailyFrontWord").innerHTML = markupKanjiReading(base.value,base.reading);
+  $("#dailyBackWord").innerHTML = markupKanjiReading(base.value,base.reading);
+  $("#dailyBackMeaning").textContent = item.meaning;
+  $("#dailyCompleteBtn").textContent = done ? "완료됨" : "이 단어 학습 완료";
+
+  const dailyRowsFront = forms.map(fm=>{
+    const cf = conj(item,fm.key);
+    const ce = ex(item,fm.key);
+    return `<div class="daily-form-row">
+      <div class="daily-form-head">
+        <span class="daily-form-label">${fm.label}</span>
+        <span class="daily-form-value">${markupKanjiReading(cf.value,cf.reading)}</span>
+      </div>
+      <div class="daily-example-line">${markupExampleSentence(item,cf.value,cf.reading,ce.jp)}</div>
+      <div class="daily-sound-row">
+        <button class="daily-mini-sound" data-daily-word-sound="${fm.key}">단어 발음</button>
+        <button class="daily-mini-sound" data-daily-example-sound="${fm.key}">예문 발음</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  const dailyRowsBack = forms.map(fm=>{
+    const cf = conj(item,fm.key);
+    const ce = ex(item,fm.key);
+    return `<div class="daily-form-row">
+      <div class="daily-form-head">
+        <span class="daily-form-label">${fm.label}</span>
+        <span class="daily-form-value">${markupKanjiReading(cf.value,cf.reading)}</span>
+      </div>
+      <div class="daily-example-line">${markupExampleSentence(item,cf.value,cf.reading,ce.jp)}</div>
+      <div class="daily-ko-line">${ce.ko}</div>
+      <div class="daily-sound-row">
+        <button class="daily-mini-sound" data-daily-word-sound="${fm.key}">단어 발음</button>
+        <button class="daily-mini-sound" data-daily-example-sound="${fm.key}">예문 발음</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  if($("#dailyFrontFormList")) $("#dailyFrontFormList").innerHTML = dailyRowsFront;
+  $("#dailyFormList").innerHTML = dailyRowsBack;
+
+  renderDailyStats();
+}
+
+
+/* 수동 출석체크 */
+function canCheckAttendanceToday(){
+  return isTodayStageComplete(dailyState.type);
+}
+
+function checkAttendanceManually(){
+  const store = ensureDailyStoreShape(readDailyStore());
+
+  if(store.attendance.includes(todayKey())){
+    alert("오늘은 이미 출석체크가 완료되었습니다.");
+    renderDailyStats();
+    return;
+  }
+
+  if(!canCheckAttendanceToday()){
+    alert("오늘 학습 5개를 먼저 완료해야 출석체크를 할 수 있습니다.");
+    renderDailyStats();
+    return;
+  }
+
+  const y = new Date();
+  y.setDate(y.getDate() - 1);
+  const yKey = `${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+
+  store.streak = store.lastCompletedDate === yKey ? store.streak + 1 : 1;
+  store.lastCompletedDate = todayKey();
+  store.attendance.push(todayKey());
+
+  if(store.streak % 3 === 0){
+    store.points += STREAK_BONUS;
+    alert(`출석체크 완료! 3일 연속 보너스 ${STREAK_BONUS}점을 받았습니다.`);
+  } else {
+    alert("출석체크가 완료되었습니다.");
+  }
+
+  writeDailyStore(store);
+  renderDailyStats();
+  renderAttendanceCalendar();
+}
+
+const originalRenderDailyStats = renderDailyStats;
+renderDailyStats = function(){
+  originalRenderDailyStats();
+
+  if(!$("#attendanceStatus") || !$("#attendanceGuide") || !$("#attendanceCheckBtn")) return;
+
+  const store = ensureDailyStoreShape(readDailyStore());
+  const already = store.attendance.includes(todayKey());
+  const canCheck = canCheckAttendanceToday();
+
+  if(already){
+    $("#attendanceStatus").textContent = "오늘 출석 완료";
+    $("#attendanceGuide").textContent = "내일 다시 오늘학습을 완료하고 출석체크하세요.";
+    $("#attendanceCheckBtn").textContent = "완료";
+    $("#attendanceCheckBtn").classList.add("done");
+  } else if(canCheck){
+    $("#attendanceStatus").textContent = "출석체크 가능";
+    $("#attendanceGuide").textContent = "오늘 학습 5개를 완료했습니다. 출석체크를 눌러주세요.";
+    $("#attendanceCheckBtn").textContent = "출석체크";
+    $("#attendanceCheckBtn").classList.remove("done");
+  } else {
+    $("#attendanceStatus").textContent = "오늘 출석 전";
+    $("#attendanceGuide").textContent = "오늘 학습 5개를 완료한 뒤 출석체크를 눌러주세요.";
+    $("#attendanceCheckBtn").textContent = "출석체크";
+    $("#attendanceCheckBtn").classList.remove("done");
+  }
+};
+
+document.addEventListener("click",e=>{
+  const btn = e.target.closest("#attendanceCheckBtn");
+  if(btn){
+    checkAttendanceManually();
+  }
+});
+
+
+/* v25 override: 출석은 출석체크 버튼으로만 처리 */
+function updateAttendanceAndReward(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  const rewardKey = `${todayKey()}_${type}_${getDailyStage(type).groupIndex}_rewarded`;
+
+  if(!store.rewarded[rewardKey]){
+    store.points += DAILY_POINTS;
+    store.rewarded[rewardKey] = true;
+    writeDailyStore(store);
+  }
+}
+
+
+/* v26 override: 오늘 학습 범위 하루 고정 + 출석체크 수정 */
+function dailyStageKey(type){
+  return `${todayKey()}_${type}`;
+}
+
+function getFixedDailyGroup(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  if(!store.activeDailyGroup) store.activeDailyGroup = {};
+
+  const key = dailyStageKey(type);
+  if(store.activeDailyGroup[key] === undefined){
+    const done = new Set(store.allCompleted[type] || []);
+    store.activeDailyGroup[key] = Math.floor(done.size / DAILY_COUNT);
+    writeDailyStore(store);
+  }
+
+  return store.activeDailyGroup[key];
+}
+
+function getDailyStage(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  const done = new Set(store.allCompleted[type] || []);
+  const total = allTypeWords(type).length;
+  const groupIndex = getFixedDailyGroup(type);
+  return {
+    done,
+    total,
+    groupIndex,
+    stageStart: groupIndex * DAILY_COUNT,
+    stageEnd: Math.min(groupIndex * DAILY_COUNT + DAILY_COUNT, total)
+  };
+}
+
+function getDailyWords(type){
+  const stage = getDailyStage(type);
+  return allTypeWords(type).slice(stage.stageStart, stage.stageEnd);
+}
+
+function completedKey(type){
+  return `stage_${type}_${todayKey()}_${getFixedDailyGroup(type)}`;
+}
+
+function getCompletedSet(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  return new Set(store.stageCompleted[completedKey(type)] || []);
+}
+
+function saveCompletedSet(type,set){
+  const store = ensureDailyStoreShape(readDailyStore());
+  store.stageCompleted[completedKey(type)] = Array.from(set);
+  writeDailyStore(store);
+}
+
+function isTodayStageComplete(type){
+  const items = getDailyWords(type);
+  if(!items.length) return false;
+  return getCompletedSet(type).size >= items.length;
+}
+
+function isTodayFullyComplete(){
+  return isTodayStageComplete(dailyState.type);
+}
+
+function canCheckAttendanceToday(){
+  return isTodayStageComplete(dailyState.type);
+}
+
+function updateAttendanceAndReward(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  const rewardKey = `${todayKey()}_${type}_${getFixedDailyGroup(type)}_rewarded`;
+
+  if(!store.rewarded[rewardKey]){
+    store.points += DAILY_POINTS;
+    store.rewarded[rewardKey] = true;
+    writeDailyStore(store);
+  }
+}
+
+function checkAttendanceManually(){
+  const store = ensureDailyStoreShape(readDailyStore());
+
+  if(store.attendance.includes(todayKey())){
+    alert("오늘은 이미 출석체크가 완료되었습니다.");
+    renderDailyStats();
+    return;
+  }
+
+  if(!canCheckAttendanceToday()){
+    alert("오늘 학습 5개를 먼저 완료해야 출석체크를 할 수 있습니다.");
+    renderDailyStats();
+    return;
+  }
+
+  const y = new Date();
+  y.setDate(y.getDate() - 1);
+  const yKey = `${y.getFullYear()}-${String(y.getMonth()+1).padStart(2,"0")}-${String(y.getDate()).padStart(2,"0")}`;
+
+  store.streak = store.lastCompletedDate === yKey ? store.streak + 1 : 1;
+  store.lastCompletedDate = todayKey();
+  store.attendance.push(todayKey());
+
+  if(store.streak % 3 === 0){
+    store.points += STREAK_BONUS;
+    alert(`출석체크 완료! 3일 연속 보너스 ${STREAK_BONUS}점을 받았습니다.`);
+  } else {
+    alert("출석체크가 완료되었습니다.");
+  }
+
+  writeDailyStore(store);
+  renderDailyStats();
+  renderAttendanceCalendar();
+}
+
+function renderDaily(){
+  const iDone = isTypeComplete("i");
+  if(dailyState.type === "na" && !iDone) dailyState.type = "i";
+
+  const type = dailyState.type;
+  const items = getDailyWords(type);
+  const completed = getCompletedSet(type);
+  const stage = getDailyStage(type);
+
+  $$(".daily-type-btn").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.dailyType===type);
+    btn.classList.toggle("locked",btn.dataset.dailyType==="na" && !iDone);
+  });
+
+  $$(".daily-type-btn").forEach(btn=>{
+    btn.classList.toggle("active",btn.dataset.dailyType===type);
+    btn.classList.toggle("locked",btn.dataset.dailyType==="na" && !iDone);
+  });
+
+  if($("#dailyLockText")){
+    $("#dailyLockText").textContent = iDone
+      ? "이형용사 75개 완료. 이제 나형용사 학습을 진행합니다."
+      : `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${stage.stageStart + 1}~${stage.stageEnd}번`;
+  }
+
+  $("#dailyTitle").textContent = type==="i" ? "이(い)형용사 오늘 학습" : "나(な)형용사 오늘 학습";
+  $("#dailyProgressText").textContent = `${completed.size} / ${items.length}`;
+  $("#dailyBar").style.width = items.length ? `${Math.round((completed.size/items.length)*100)}%` : "0%";
+
+  if($("#dailyStageInfo")){
+    const currentSet = items.length ? `${stage.stageStart + 1}~${stage.stageEnd}` : "완료";
+    $("#dailyStageInfo").textContent = type==="i"
+      ? `이형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`
+      : `나형용사 전체 진행률: ${stage.done.size} / ${stage.total} · 오늘 범위: ${currentSet}번`;
+  }
+
+  if(!items.length){
+    $("#dailyFrontWord").textContent = "학습 완료";
+    $("#dailyBackWord").textContent = "학습 완료";
+    $("#dailyBackMeaning").textContent = "오늘 학습할 단어가 없습니다.";
+    $("#dailyFormList").innerHTML = "";
+    if($("#dailyFrontFormList")) $("#dailyFrontFormList").innerHTML = "";
+    renderDailyStats();
+    return;
+  }
+
+  if(dailyState.index >= items.length) dailyState.index = 0;
+  const item = currentDailyItem();
+  const base = conj(item,"base");
+  const done = completed.has(item.id);
+
+  $("#dailySingleCard").classList.remove("flipped");
+  $("#dailySingleCard").classList.toggle("na",type==="na");
+  $("#dailyFrontWord").innerHTML = markupKanjiReading(base.value,base.reading);
+  $("#dailyBackWord").innerHTML = markupKanjiReading(base.value,base.reading);
+  $("#dailyBackMeaning").textContent = item.meaning;
+  $("#dailyCompleteBtn").textContent = done ? "완료됨" : "이 단어 학습 완료";
+
+  const dailyRowsFront = forms.map(fm=>{
+    const cf = conj(item,fm.key);
+    const ce = ex(item,fm.key);
+    return `<div class="daily-form-row">
+      <div class="daily-form-head">
+        <span class="daily-form-label">${fm.label}</span>
+        <span class="daily-form-value">${markupKanjiReading(cf.value,cf.reading)}</span>
+      </div>
+      <div class="daily-example-line">${markupExampleSentence(item,cf.value,cf.reading,ce.jp)}</div>
+      <div class="daily-sound-row">
+        <button class="daily-mini-sound" data-daily-word-sound="${fm.key}">단어 발음</button>
+        <button class="daily-mini-sound" data-daily-example-sound="${fm.key}">예문 발음</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  const dailyRowsBack = forms.map(fm=>{
+    const cf = conj(item,fm.key);
+    const ce = ex(item,fm.key);
+    return `<div class="daily-form-row">
+      <div class="daily-form-head">
+        <span class="daily-form-label">${fm.label}</span>
+        <span class="daily-form-value">${markupKanjiReading(cf.value,cf.reading)}</span>
+      </div>
+      <div class="daily-example-line">${markupExampleSentence(item,cf.value,cf.reading,ce.jp)}</div>
+      <div class="daily-ko-line">${ce.ko}</div>
+      <div class="daily-sound-row">
+        <button class="daily-mini-sound" data-daily-word-sound="${fm.key}">단어 발음</button>
+        <button class="daily-mini-sound" data-daily-example-sound="${fm.key}">예문 발음</button>
+      </div>
+    </div>`;
+  }).join("");
+
+  if($("#dailyFrontFormList")) $("#dailyFrontFormList").innerHTML = dailyRowsFront;
+  $("#dailyFormList").innerHTML = dailyRowsBack;
+
+  renderDailyStats();
+}
+
+
+/* v27 fresh start: 새 저장소 기준 처음 시작 화면 */
+function getFixedDailyGroup(type){
+  const store = ensureDailyStoreShape(readDailyStore());
+  if(!store.activeDailyGroup) store.activeDailyGroup = {};
+
+  const key = dailyStageKey(type);
+
+  if(store.activeDailyGroup[key] === undefined){
+    const done = new Set(store.allCompleted[type] || []);
+    const group = Math.floor(done.size / DAILY_COUNT);
+    store.activeDailyGroup[key] = group;
+    writeDailyStore(store);
+  }
+
+  return store.activeDailyGroup[key];
+}
+
+function resetDailyProgressForNewInstall(){
+  const store = readDailyStore();
+  if(!store.initializedFreshV27){
+    writeDailyStore({
+      points: 0,
+      attendance: [],
+      lastCompletedDate: "",
+      streak: 0,
+      completed: {},
+      rewarded: {},
+      notifyEnabled: false,
+      notifyTime: "20:00",
+      lastReminderKey: "",
+      allCompleted: {i: [], na: []},
+      stageCompleted: {},
+      activeDailyGroup: {},
+      initializedFreshV27: true
+    });
+  }
+}
+resetDailyProgressForNewInstall();
+
+const calendarWrappedRenderDailyStats = renderDailyStats;
+renderDailyStats = function(){
+  calendarWrappedRenderDailyStats();
+  renderAttendanceCalendar();
+};
+
+
+function renderAttendanceCalendar(){
+  if(!$("#attendanceCalendar")) return;
+
+  const store = ensureDailyStoreShape(readDailyStore());
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = now.getMonth();
+  const todayDate = now.getDate();
+
+  const first = new Date(year, month, 1);
+  const last = new Date(year, month + 1, 0);
+  const startDay = first.getDay();
+  const lastDate = last.getDate();
+
+  const monthPrefix = `${year}-${String(month + 1).padStart(2,"0")}`;
+  const attendedThisMonth = store.attendance.filter(d => d.startsWith(monthPrefix));
+
+  if($("#calendarMonthTitle")){
+    $("#calendarMonthTitle").textContent = `${month + 1}월 출석 달력`;
+  }
+  if($("#calendarSummary")){
+    $("#calendarSummary").textContent = `이번 달 출석 ${attendedThisMonth.length}일`;
+  }
+
+  let html = "";
+  for(let i=0; i<startDay; i++){
+    html += `<div class="calendar-day empty"></div>`;
+  }
+
+  for(let d=1; d<=lastDate; d++){
+    const key = `${year}-${String(month + 1).padStart(2,"0")}-${String(d).padStart(2,"0")}`;
+    const checked = store.attendance.includes(key);
+    const today = d === todayDate;
+    html += `<div class="calendar-day ${checked ? "checked" : ""} ${today ? "today" : ""}">${d}</div>`;
+  }
+
+  $("#attendanceCalendar").innerHTML = html;
+}
+
+
+document.addEventListener("click",e=>{
+  if(e.target.closest("#notifyCancelBtn")) closeNotifyModal();
+  if(e.target.closest("#notifySaveBtn")) saveNotifyTime();
+  if(e.target.closest("#notifyDisableBtn")) disableNotifyTime();
+  const modal = e.target.closest("#notifyModal");
+  if(modal && e.target === modal) closeNotifyModal();
+});
+
+document.addEventListener("keydown",e=>{
+  if(e.key === "Escape") closeNotifyModal();
+});
+
+document.addEventListener("visibilitychange",()=>{
+  if(!document.hidden) maybeShowDailyReminder();
+});
+
+setInterval(maybeShowDailyReminder, 60 * 1000);
+maybeShowDailyReminder();
+
+formTabs();render();renderDaily();
+</script>
+</body>
+</html>
