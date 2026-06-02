@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>일본어 형용사 단어장</title>
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;background:#f6f3ed;color:#4F8A5B}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;background:#f6f3ed;color:#222}
 .app{width:100%;max-width:430px;min-height:100vh;margin:0 auto;padding:18px;background:#fffaf2}
 h1{margin:0 0 6px;font-size:21px} .desc{margin:0 0 16px;color:#777;font-size:14px;line-height:1.5}
 .tabs,.mode-tabs,.form-tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px}
@@ -640,6 +640,37 @@ ruby.kanji-ruby rt {
 
 ruby rt{color:#4F8A5B;font-weight:600;}
 </style>
+
+<style id="final-ruby-color-hard-fix">
+/* 일본어 본문: 검정 */
+#frontWord, #backWord, #formValue, #exJp,
+#dailyFrontWord, #dailyBackWord, #dailyFrontFormList,
+#dailyFormList, .jp, .form-value, .ex-jp,
+.daily-front-word, .daily-back-title, .daily-form-value,
+.daily-example-line, .word strong, .question {
+  color: #222 !important;
+}
+
+/* 예문/단어의 한자 위 후리가나만 진한 녹색 */
+#frontWord rt, #backWord rt, #formValue rt, #exJp rt,
+#dailyFrontWord rt, #dailyBackWord rt,
+#dailyFrontFormList rt, #dailyFormList rt,
+.jp rt, .form-value rt, .ex-jp rt,
+.daily-front-word rt, .daily-back-title rt,
+.daily-form-value rt, .daily-example-line rt,
+.word strong rt, .question rt,
+ruby.kanji-ruby rt {
+  color: #3F7D4E !important;
+  font-weight: 700 !important;
+}
+
+/* 예문 전체가 녹색으로 보이지 않도록 ruby 본문은 검정으로 재고정 */
+#exJp ruby, .ex-jp ruby, .daily-example-line ruby,
+#dailyFrontFormList ruby, #dailyFormList ruby {
+  color: #222 !important;
+}
+</style>
+
 </head>
 <body>
 <div class="app">
@@ -2211,12 +2242,6 @@ document.addEventListener('click',e=>{
 </body>
 </html>
 
-<style id="final-color-fix">
-.jp, .daily-front-word, .daily-back-title, .form-value, .daily-form-value, .word strong{
-    color:#222 !important;
-}
-ruby rt{
-    color:#4F8A5B !important;
-    font-weight:600 !important;
-}
-</style>
+
+
+
