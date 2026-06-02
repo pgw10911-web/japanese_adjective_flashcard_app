@@ -1592,6 +1592,7 @@ function ensureDailyStoreShape(store){
 }
 
 function allTypeWords(type){
+  /* 플래시카드에 표시되는 원본 배열 순서를 그대로 사용 */
   return words.filter(w => w.type === type).slice(0, DAILY_STAGE_COUNT);
 }
 
