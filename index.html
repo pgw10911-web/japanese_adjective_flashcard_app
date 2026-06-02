@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>일본어 형용사 단어장</title>
 <style>
-*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;background:#f6f3ed;color:#222}
+*{box-sizing:border-box} body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Pretendard,sans-serif;background:#f6f3ed;color:#93B59A}
 .app{width:100%;max-width:430px;min-height:100vh;margin:0 auto;padding:18px;background:#fffaf2}
 h1{margin:0 0 6px;font-size:21px} .desc{margin:0 0 16px;color:#777;font-size:14px;line-height:1.5}
 .tabs,.mode-tabs,.form-tabs{display:flex;gap:8px;overflow-x:auto;margin-bottom:12px;padding-bottom:2px}
 button{border:0;cursor:pointer;font-family:inherit} .tab-btn,.mode-btn,.form-btn{flex:0 0 auto;padding:9px 13px;border-radius:999px;background:#eee;color:#555;font-weight:800;font-size:13px}
-.active{background:#222!important;color:#fff!important} input{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:14px;font-size:15px;outline:none;margin-bottom:14px}
+.active{background:#93B59A!important;color:#fff!important} input{width:100%;padding:13px 14px;border:1px solid #ddd;border-radius:14px;font-size:15px;outline:none;margin-bottom:14px}
 .stats{display:flex;justify-content:space-between;margin-bottom:14px;font-size:13px;color:#666}
 .card-wrap{perspective:1000px;margin-bottom:14px} .card{cursor:pointer;position:relative;min-height:300px;border-radius:22px;transform-style:preserve-3d;transition:.45s;box-shadow:0 14px 32px rgba(0,0,0,.08)}
 .card.flipped{transform:rotateY(180deg)} .face{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:18px;border-radius:22px;backface-visibility:hidden;overflow:hidden}
@@ -19,12 +19,12 @@ button{border:0;cursor:pointer;font-family:inherit} .tab-btn,.mode-btn,.form-btn
 .jp{font-size:40px;font-weight:900;text-align:center;line-height:1.2;margin-bottom:10px} .reading{font-size:17px;color:#555;margin-bottom:18px} .meaning{font-size:22px;font-weight:900;margin-bottom:14px}
 .box{width:100%;background:rgba(255,255,255,.72);border-radius:16px;padding:14px;margin-bottom:10px} .label{font-size:12px;font-weight:900;color:#666;margin-bottom:6px}
 .form-value{font-size:21px;font-weight:900;margin-bottom:4px} .ex-jp{font-size:18px;font-weight:800;line-height:1.45;margin-bottom:6px} .ex-kana,.ex-ko{font-size:14px;line-height:1.45;color:#444;margin-bottom:5px}
-.sound-row,.controls,.quiz-actions{display:flex;gap:8px} .sound,.nav,.flip,.quiz-btn{padding:11px 12px;border-radius:14px;background:#222;color:#fff;font-weight:800;font-size:13px}
+.sound-row,.controls,.quiz-actions{display:flex;gap:8px} .sound,.nav,.flip,.quiz-btn{padding:11px 12px;border-radius:14px;background:#93B59A;color:#fff;font-weight:800;font-size:13px}
 .sound{flex:1}.mini-sound{position:absolute;right:18px;top:18px;width:42px;height:42px;border-radius:50%;background:rgba(34,34,34,.82);color:#fff;font-size:18px;font-weight:900;display:flex;align-items:center;justify-content:center} .controls{display:grid;grid-template-columns:1fr 1fr;margin-bottom:18px} .flip{grid-column:span 2;background:#444}
 .list{display:grid;gap:9px;max-height:230px;overflow-y:auto;padding-bottom:10px} .word{display:flex;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:#fff;border:1px solid #eee;text-align:left}
-.word.now{border-color:#222;box-shadow:0 0 0 2px rgba(0,0,0,.06)} .word strong{display:block;font-size:17px} .word span{display:block;color:#666;font-size:13px;margin-top:2px} .pill{padding:5px 8px;border-radius:999px;font-size:11px;font-weight:900;background:#f2f2f2;height:max-content}
+.word.now{border-color:#93B59A;box-shadow:0 0 0 2px rgba(0,0,0,.06)} .word strong{display:block;font-size:17px} .word span{display:block;color:#666;font-size:13px;margin-top:2px} .pill{padding:5px 8px;border-radius:999px;font-size:11px;font-weight:900;background:#f2f2f2;height:max-content}
 .hidden{display:none!important} .quiz-box{display:none;padding:18px;border-radius:24px;background:#fff;box-shadow:0 10px 26px rgba(0,0,0,.06)} .quiz-box.on{display:block}
-.question{font-size:22px;font-weight:900;line-height:1.4;margin-bottom:16px} .choices{display:grid;gap:9px;margin-bottom:14px} .choice{width:100%;padding:13px 14px;border-radius:15px;background:#f4f4f4;color:#222;font-size:15px;font-weight:800;text-align:left}
+.question{font-size:22px;font-weight:900;line-height:1.4;margin-bottom:16px} .choices{display:grid;gap:9px;margin-bottom:14px} .choice{width:100%;padding:13px 14px;border-radius:15px;background:#f4f4f4;color:#93B59A;font-size:15px;font-weight:800;text-align:left}
 .correct{background:#d9f5dd!important} .wrong{background:#ffdede!important} .result{min-height:22px;font-weight:900;margin-bottom:12px} .quiz-actions .quiz-btn{flex:1}
 
 .word-line {
@@ -155,18 +155,18 @@ h1,
 .daily-head{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;margin-bottom:14px}
 .daily-head h2{margin:0 0 5px;font-size:20px;line-height:1.3}
 .daily-head p{margin:0;color:#777;font-size:13px;line-height:1.45}
-.daily-small-btn{flex:0 0 auto;padding:9px 11px;border-radius:999px;background:#222;color:#fff;font-size:12px}
+.daily-small-btn{flex:0 0 auto;padding:9px 11px;border-radius:999px;background:#93B59A;color:#fff;font-size:12px}
 .daily-score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
 .daily-score-card{padding:12px 10px;border-radius:16px;background:#f5f5f5}
 .daily-score-card span{display:block;color:#777;font-size:12px;margin-bottom:5px}
-.daily-score-card strong{display:block;color:#222;font-size:18px}
+.daily-score-card strong{display:block;color:#93B59A;font-size:18px}
 .daily-type-tabs{display:flex;gap:8px;margin-bottom:14px}
 .daily-type-btn{flex:1;padding:11px 10px;border-radius:999px;background:#eee;color:#555;font-size:14px}
-.daily-type-btn.active{background:#222;color:#fff}
+.daily-type-btn.active{background:#93B59A;color:#fff}
 .daily-progress{margin-bottom:14px}
 .daily-progress-row{display:flex;justify-content:space-between;margin-bottom:8px;color:#555;font-size:14px}
 .daily-bar{width:100%;height:10px;border-radius:999px;background:#eee;overflow:hidden}
-.daily-bar span{display:block;width:0%;height:100%;border-radius:inherit;background:#222;transition:width .25s ease}
+.daily-bar span{display:block;width:0%;height:100%;border-radius:inherit;background:#93B59A;transition:width .25s ease}
 .daily-card{padding:18px;border-radius:22px;background:#fff1b8;margin-bottom:12px}
 .daily-card.na{background:#edf8ff}
 .daily-word{font-size:34px;line-height:1.35;margin-bottom:8px}
@@ -174,13 +174,13 @@ h1,
 .daily-example{font-size:20px;line-height:1.5;margin-bottom:6px}
 .daily-ko{font-size:15px;line-height:1.45;color:#555}
 .daily-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px}
-.daily-btn{padding:13px 12px;border-radius:15px;background:#222;color:#fff;font-size:14px}
+.daily-btn{padding:13px 12px;border-radius:15px;background:#93B59A;color:#fff;font-size:14px}
 .daily-list{display:grid;gap:8px}
 .daily-item{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 13px;border-radius:15px;background:#f7f7f7;border:1px solid #eee}
 .daily-item.done{background:#e9f8ec}
 .daily-item-word{font-size:17px}
 .daily-item-meaning{display:block;color:#666;font-size:13px;margin-top:3px}
-.daily-done-pill{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:#222;color:#fff;font-size:11px}
+.daily-done-pill{flex:0 0 auto;padding:5px 8px;border-radius:999px;background:#93B59A;color:#fff;font-size:11px}
 @media(max-width:380px){.daily-word{font-size:28px}.daily-example{font-size:18px}.daily-score-card strong{font-size:16px}}
 
 
@@ -325,7 +325,7 @@ h1,
 .daily-mini-sound {
   padding: 9px 10px;
   border-radius: 12px;
-  background: #222;
+  background: #93B59A;
   color: #fff;
   font-size: 13px;
 }
@@ -342,7 +342,7 @@ h1,
   width: 100%;
   padding: 13px 12px;
   border-radius: 15px;
-  background: #222;
+  background: #93B59A;
   color: #fff;
   font-size: 14px;
 }
@@ -413,7 +413,7 @@ h1,
 .attendance-check-box strong {
   display: block;
   font-size: 15px;
-  color: #222;
+  color: #93B59A;
   margin-bottom: 4px;
 }
 
@@ -428,7 +428,7 @@ h1,
   flex: 0 0 auto;
   padding: 10px 12px;
   border-radius: 999px;
-  background: #222;
+  background: #93B59A;
   color: #fff;
   font-size: 13px;
 }
@@ -455,7 +455,7 @@ h1,
 
 .calendar-head strong {
   font-size: 15px;
-  color: #222;
+  color: #93B59A;
 }
 
 .calendar-head span {
@@ -494,7 +494,7 @@ h1,
 }
 
 .calendar-day.today {
-  outline: 1px solid #222;
+  outline: 1px solid #93B59A;
 }
 
 .calendar-day.checked {
@@ -538,7 +538,7 @@ h1,
 .notify-panel h3 {
   margin: 0 0 8px;
   font-size: 22px;
-  color: #222;
+  color: #93B59A;
 }
 .notify-panel p {
   margin: 0 0 16px;
@@ -569,7 +569,7 @@ h1,
 .notify-action-btn {
   padding: 14px 12px;
   border-radius: 16px;
-  background: #222;
+  background: #93B59A;
   color: #fff;
   font-size: 14px;
 }
@@ -668,6 +668,10 @@ ruby.kanji-ruby rt {
 
 
 <section class="daily-box" id="dailyBox">
+
+<button id="printTodayBtn" style="width:100%;padding:12px;border-radius:14px;background:#93B59A;color:#fff;margin-bottom:12px;">오늘학습 5개 인쇄</button>
+<div id="printTodayArea" style="display:none;"></div>
+
   <div class="daily-head">
     <div>
       <h2>오늘의 형용사 학습</h2>
@@ -1592,7 +1596,6 @@ function ensureDailyStoreShape(store){
 }
 
 function allTypeWords(type){
-  /* 플래시카드에 표시되는 원본 배열 순서를 그대로 사용 */
   return words.filter(w => w.type === type).slice(0, DAILY_STAGE_COUNT);
 }
 
@@ -2182,6 +2185,26 @@ setInterval(maybeShowDailyReminder, 60 * 1000);
 maybeShowDailyReminder();
 
 formTabs();render();renderDaily();
+
+function buildTodayPrintSheet(){
+  const items = getDailyWords(dailyState.type);
+  let html = '<html><head><meta charset="utf-8"><title>오늘학습 인쇄</title><style>body{font-family:sans-serif;padding:20px}h2{margin-bottom:20px}.item{margin-bottom:25px;padding-bottom:15px;border-bottom:1px solid #ccc}.word{font-size:24px;margin-bottom:8px}.ex{font-size:18px}</style></head><body>';
+  html += '<h2>오늘학습 5개</h2>';
+  items.forEach((item,idx)=>{
+    const e = ex(item,'base');
+    html += `<div class="item"><div class="word">${idx+1}. ${item.word} (${item.reading}) - ${item.meaning}</div><div class="ex">${e.jp}</div><div>${e.ko}</div></div>`;
+  });
+  html += '</body></html>';
+  const w = window.open('','_blank');
+  w.document.write(html);
+  w.document.close();
+  w.focus();
+  w.print();
+}
+document.addEventListener('click',e=>{
+  if(e.target.closest('#printTodayBtn')) buildTodayPrintSheet();
+});
+
 </script>
 </body>
 </html>
