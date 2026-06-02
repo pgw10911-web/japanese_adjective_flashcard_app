@@ -581,6 +581,62 @@ h1,
   color: #666;
 }
 
+
+
+/* 후리가나 ruby 표시: 한자 위에만 표시, 가능한 한 줄 유지 */
+ruby.kanji-ruby {
+  ruby-align: center;
+  ruby-position: over;
+  display: inline-ruby;
+  white-space: nowrap;
+}
+ruby.kanji-ruby rt {
+  font-size: 0.5em;
+  line-height: 1;
+  color: #777;
+  font-weight: 400 !important;
+}
+.jp,
+.daily-front-word,
+.daily-back-title,
+.daily-form-value,
+.form-value,
+.question,
+.word strong {
+  word-break: keep-all !important;
+  overflow-wrap: normal !important;
+}
+.jp {
+  white-space: nowrap !important;
+  font-size: clamp(36px, 11vw, 52px) !important;
+  line-height: 1.35 !important;
+  letter-spacing: -0.04em;
+}
+.daily-front-word,
+.daily-back-title {
+  white-space: nowrap !important;
+  font-size: clamp(30px, 9vw, 42px) !important;
+  letter-spacing: -0.03em;
+}
+.form-value,
+.daily-form-value,
+.ex-jp,
+.daily-example-line,
+.question {
+  white-space: normal;
+}
+.word strong {
+  font-size: 24px !important;
+  line-height: 1.45 !important;
+}
+.word strong ruby.kanji-ruby rt {
+  font-size: 0.63em !important;
+  color: #777;
+}
+.word span span {
+  font-size: 16px !important;
+}
+
 </style>
 </head>
 <body>
@@ -1291,35 +1347,30 @@ function escapeHtml(str){
 
 function markupKanjiReading(word, reading){
   const text = String(word);
-  const yomi = String(reading);
+  const yomi = String(reading || "");
 
   const special = {
-    "使いたい": "使<span class=\"kana-in-kanji\">(つか)</span>いたい",
-    "使って": "使<span class=\"kana-in-kanji\">(つか)</span>って",
-    "使": "使<span class=\"kana-in-kanji\">(つか)</span>",
-    "考え方": "考<span class=\"kana-in-kanji\">(かんが)</span>え方<span class=\"kana-in-kanji\">(かた)</span>",
-    "言い方": "言<span class=\"kana-in-kanji\">(い)</span>い方<span class=\"kana-in-kanji\">(かた)</span>",
-    "子ども": "子<span class=\"kana-in-kanji\">(こ)</span>ども"
+    "使いたい": "<ruby class=\"kanji-ruby\">使<rt>つか</rt></ruby>いたい",
+    "使って": "<ruby class=\"kanji-ruby\">使<rt>つか</rt></ruby>って",
+    "使": "<ruby class=\"kanji-ruby\">使<rt>つか</rt></ruby>",
+    "考え方": "<ruby class=\"kanji-ruby\">考<rt>かんが</rt></ruby>え<ruby class=\"kanji-ruby\">方<rt>かた</rt></ruby>",
+    "言い方": "<ruby class=\"kanji-ruby\">言<rt>い</rt></ruby>い<ruby class=\"kanji-ruby\">方<rt>かた</rt></ruby>",
+    "子ども": "<ruby class=\"kanji-ruby\">子<rt>こ</rt></ruby>ども"
   };
-
   if(special[text]) return special[text];
 
   const match = text.match(/^([\u4E00-\u9FFF]+)(.*)$/);
-  if(!match){
-    return escapeHtml(text);
-  }
+  if(!match) return escapeHtml(text);
 
   const kanjiPart = match[1];
   const rest = match[2] || "";
   let kanjiReading = yomi;
-
   if(rest && yomi.endsWith(rest)){
     kanjiReading = yomi.slice(0, yomi.length - rest.length);
   }
-
   if(!kanjiReading) kanjiReading = yomi;
 
-  return `${escapeHtml(kanjiPart)}<span class="kana-in-kanji">(${escapeHtml(kanjiReading)})</span>${escapeHtml(rest)}`;
+  return `<ruby class="kanji-ruby">${escapeHtml(kanjiPart)}<rt>${escapeHtml(kanjiReading)}</rt></ruby>${escapeHtml(rest)}`;
 }
 
 function replaceAllSafe(source, target, replacement){
@@ -1370,7 +1421,7 @@ function markupExampleSentence(item, formValue, formReading, exJp){
 function speak(text){if(!window.speechSynthesis){alert("이 브라우저에서는 음성 발음을 지원하지 않습니다.");return} speechSynthesis.cancel();let u=new SpeechSynthesisUtterance(text);u.lang="ja-JP";u.rate=.85;speechSynthesis.speak(u)}
 function formTabs(){$("#formTabs").innerHTML=forms.map(f=>`<button class="form-btn ${state.form===f.key?"active":""}" data-form="${f.key}">${f.label}</button>`).join("")}
 function filter(){let q=$("#search").value.trim().toLowerCase();state.filtered=words.filter(it=>(state.type==="all"||it.type===state.type)&&`${it.word} ${it.reading} ${it.meaning} ${it.noun} ${it.nounReading}`.toLowerCase().includes(q));if(state.index>=state.filtered.length)state.index=0}
-function render(){filter();let it=state.filtered[state.index];$("#count").textContent=`${state.filtered.length}개`;$("#idx").textContent=state.filtered.length?`${state.index+1} / ${state.filtered.length}`:"0 / 0";if(!it){$("#frontWord").textContent="검색 결과 없음";$("#frontReading").textContent="";$("#list").innerHTML="";return}let f=conj(it,state.form),e=ex(it,state.form),typeText=it.type==="i"?"이(い)형용사":"나(な)형용사";$("#card").className=`card ${it.type}`;$("#frontType").textContent=typeText;$("#backType").textContent=typeText;$("#frontWord").innerHTML=markupKanjiReading(f.value,f.reading);$("#frontReading").textContent="";$("#meaning").textContent=it.meaning;$("#formValue").innerHTML=markupKanjiReading(f.value,f.reading);$("#formReading").textContent="";$("#exJp").innerHTML=markupExampleSentence(it,f.value,f.reading,e.jp);$("#exKana").textContent="";$("#exKo").textContent=e.ko;$("#list").innerHTML=state.filtered.map((w,i)=>`<button class="word ${i===state.index?"now":""}" data-index="${i}"><span><strong>${w.word}</strong><span>${w.reading} · ${w.meaning}</span></span><b class="pill">${w.type==="i"?"い":"な"}</b></button>`).join("")}
+function render(){filter();let it=state.filtered[state.index];$("#count").textContent=`${state.filtered.length}개`;$("#idx").textContent=state.filtered.length?`${state.index+1} / ${state.filtered.length}`:"0 / 0";if(!it){$("#frontWord").textContent="검색 결과 없음";$("#frontReading").textContent="";$("#list").innerHTML="";return}let f=conj(it,state.form),e=ex(it,state.form),typeText=it.type==="i"?"이(い)형용사":"나(な)형용사";$("#card").className=`card ${it.type}`;$("#frontType").textContent=typeText;$("#backType").textContent=typeText;$("#frontWord").innerHTML=markupKanjiReading(f.value,f.reading);$("#frontReading").textContent="";$("#meaning").textContent=it.meaning;$("#formValue").innerHTML=markupKanjiReading(f.value,f.reading);$("#formReading").textContent="";$("#exJp").innerHTML=markupExampleSentence(it,f.value,f.reading,e.jp);$("#exKana").textContent="";$("#exKo").textContent=e.ko;$("#list").innerHTML=state.filtered.map((w,i)=>`<button class="word ${i===state.index?"now":""}" data-index="${i}"><span><strong>${markupKanjiReading(w.word,w.reading)}</strong><span>${w.meaning}</span></span><b class="pill">${w.type==="i"?"い":"な"}</b></button>`).join("")}
 function quiz(){
   filter();
   if(state.filtered.length<4){
